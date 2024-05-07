@@ -11,6 +11,8 @@
   align-items: center;
   justify-content: flex-end;
   align-self: flex-start;
+  position: sticky;
+  bottom: 0;
 }
 
 .theme-switch-wrapper .theme-switch {
@@ -221,6 +223,7 @@ background : #040b14
   z-index: 9997;
   transition: all 0.5s;
   padding: 40px 15px;
+  padding-bottom: 60px;
   background: #040b14;
   overflow-y: auto;
 }
