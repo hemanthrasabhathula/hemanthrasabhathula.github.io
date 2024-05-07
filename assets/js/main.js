@@ -1,6 +1,24 @@
 (function () {
   "use strict";
 
+  window.copyToClipboard = (text) =>{
+    console.log("Copied To Clipboard : ",text);
+    var tempInput = document.createElement('input');
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    const floatingMessage = document.createElement('div');
+    floatingMessage.classList.add('floating-message');
+    floatingMessage.textContent = "Copied: " + text;
+    document.body.appendChild(floatingMessage);
+    setTimeout(() => {
+      document.body.removeChild(floatingMessage);
+    }, 1000);
+  }
+
   /**
    * Easy selector helper function
    */
@@ -108,6 +126,7 @@
     }
   }, true)
 
+
   /**
    * Scroll with ofset on page load with hash links in the url
    */
@@ -131,7 +150,8 @@
       loop: true,
       typeSpeed: 100,
       backSpeed: 50,
-      backDelay: 2000
+      backDelay: 2000,
+      cursorChar: '/'
     });
   }
 
@@ -251,15 +271,18 @@
 
     return yearsdiff;
   }
-  const birthYear = 1996;
-  const birthMonth = 11;
+  //const birthYear = 1996;
+  //const birthMonth = 11;
   const jobYear = 2018;
   const jobMonth = 10;
 
 
   document.getElementById("jobYear").textContent = jobYear;
-  document.getElementById("age").textContent = calculateYears(birthYear,birthMonth);
+  //document.getElementById("age").textContent = calculateYears(birthYear,birthMonth);
   document.getElementById("expYears").textContent = calculateYears(jobYear,jobMonth);
+
+
+  
 
   /**
    * 

@@ -58,7 +58,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/profile-img.JPG" alt="" class="img-fluid rounded-circle">
+        <img src="assets/img/profile-img_cropped.JPG" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Hemanth Rasabhathula</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://github.com/hemanthrasabhathula" target="_blank" rel="noopener noreferrer" class="github"><i
@@ -90,7 +90,7 @@
     <div class="home-container" data-aos="fade-in">
       <h1>Hemanth</h1>
       <h1>Rasabhathula</h1>
-      <p>I'm a <span class="typed" data-typed-items="Developer, Tech Enthusiast, Futurist, Cyberphile, UI Designer "></span></p>
+      <p>I'm a &lt;<span class="typed" data-typed-items="Developer, Tech Enthusiast, Futurist, Cyberphile, UI Designer "></span>&gt;</p>
     </div>
   </section><!-- End home -->
 
@@ -107,9 +107,9 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img.JPG" class="img-fluid" alt="" style="border-radius: 1%;">
+            <img src="assets/img/profile-img_about.JPG" class="img-fluid" alt="" style="border-radius: 3%;">
           </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <div class="col-lg-8 pt-4 pt-lg-5 content" data-aos="fade-left">
             <h3>Software Developer</h3>
             <p class="fst-italic">
 
@@ -117,12 +117,16 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
-                    <span>www.hemanthrasabhathula.co.in</span></li>
+                  <li><i class="bi bi-chevron-right"></i><strong>Website:</strong>
+                    <span onclick="copyToClipboard('https://www.hemanthrasabhathula.co.in')" style="cursor: pointer;">www.hemanthrasabhathula.co.in</span></li>
+                  
+                  <li><i class="bi bi-chevron-right"></i> <strong>Education:</strong> <span>MSc in Computer Science</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Lee's Summit, MO</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
+                    <span onclick="copyToClipboard('hemanth.rasabhathula@gmail.com')" style="cursor: pointer;">Hemanth.Rasabhathula@gmail.com</span></li>
                 </ul>
               </div>
-              <div class="col-lg-6">
+              <!-- <div class="col-lg-6">
                 <ul>
                   <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span id="age"></span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Electronics &amp;  Communications</span></li>
@@ -130,7 +134,7 @@
                     <span>Hemanth.Rasabhathula@gmail.com</span></li>
 
                 </ul>
-              </div>
+              </div> -->
             </div>
             <p>
               I am always looking for new challenges and opportunities to learn and grow in my field. I am a team player
@@ -244,11 +248,18 @@
             <!-- <h3 class="resume-title">Education</h3> -->
             <h3 class="resume-title d-none d-lg-block">Education</h3>
             <div class="resume-item pb-0 d-none d-lg-block">
+              <h4>MSc in Computer Science</h4>
+              <h5>2024 - Present</h5>
+              <p><em>UCM - Missouri, US</em></p>
+              <p>I am currently pursuing my Master of Science degree in Computer Science at the University of Central Missouri, where I focus on the fields of Artificial Intelligence and Machine Learning.</p>
+            </div>
+            <!-- <h3 class="resume-title d-none d-lg-block">Education</h3>
+            <div class="resume-item pb-0 d-none d-lg-block">
               <h4>Bachelor of Electronics &amp; Communication</h4>
               <h5>2014 - 2018</h5>
               <p><em>MREC, HYD, IN</em></p>
               <p>I hold a Bachelor's degree in Electronics and Communication Engineering, Which has given me a strong foundation in the principles of Computer Networking and Data Structures. I have a solid understanding of digital and analog communication systems, microcontrollers, and programming algorithms.</p>
-            </div>
+            </div> -->
 
             <h3 class="resume-title d-none d-lg-block">Interests & Hobbies</h3>
             <div class="resume-item pb-0 d-none d-lg-block">
@@ -267,9 +278,9 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <h3 class="resume-title">Professional Experience</h3>
             <div class="resume-item">
-              <h4>Assoc Software Developer II</h4>
-              <h5>2021 - Present</h5>
-              <p><em>Optum, Hyderabad, IN</em></p>
+              <h4>Software Engineer</h4>
+              <h5>2021 - 2023</h5>
+              <p><em>Optum - Hyderabad, IN</em></p>
               <ul>
                 <li>Worked with a variety of technologies, including databases, web services, and APIs, to ensure the security and reliability of the login module.</li>
                 <li>Implemented GraphQL Query API for the Performance enhancements.</li>
@@ -283,7 +294,7 @@
             <div class="resume-item">
               <h4>Senior Software Developer</h4>
               <h5>2018 - 2021</h5>
-              <p><em>Mindtree Ltd, Bangalore, IN</em></p>
+              <p><em>Mindtree Ltd - Bangalore, IN</em></p>
               <ul>
                 <li>Developed and implemented Business logic using Java 8 features for various monitoring platforms.</li>
                 <li>Managed critical remote connection modules, such as RDP and Shell.</li>
@@ -299,10 +310,10 @@
           <div class="col-lg-6" data-aos="fade-up">
             <h3 class="resume-title d-lg-none">Education</h3>
             <div class="resume-item pb-0 d-lg-none">
-              <h4>Bachelor of Electronics &amp; Communication</h4>
-              <h5>2014 - 2018</h5>
-              <p><em>MREC, HYD, IN</em></p>
-              <p>I hold a Bachelor's degree in Electronics and Communication Engineering, Which has given me a strong foundation in the principles of Computer Networking and Data Structures. I have a solid understanding of digital and analog communication systems, microcontrollers, and programming algorithms.</p>
+              <h4>MSc in Computer Science</h4>
+              <h5>2024 - Present</h5>
+              <p><em>UCM - Missouri, US</em></p>
+              <p>I am currently pursuing my Master of Science degree in Computer Science at the University of Central Missouri, where I focus on the fields of Artificial Intelligence and Machine Learning.</p>
             </div>
           </div>
 
@@ -350,7 +361,7 @@
                 <p>Lee's Summit, MO</p>
               </div>
 
-              <div class="email">
+              <div class="email"  onclick="copyToClipboard('hemanth.rasabhathula@gmail.com')" style="cursor: pointer;">
                 <i class="bi bi-envelope"></i>
                 <h4>Email</h4>
                 <p>hemanth.rasabhathula@gmail.com</p>
