@@ -1,9 +1,111 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# toggle switch
+--------------------------------------------------------------*/
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: flex-start;
+}
+
+.theme-switch-wrapper .theme-switch {
+  margin-right: 10px; /* Add some space between the switch and the label */
+}
+
+.theme-switch-wrapper #mode-label {
+  color: #a8a9b4; /* Use the same color as the other nav items */
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 30px;
+  position: relative;
+  width: 55px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 22px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 22px;
+}
+
+input:checked + .slider {
+  background-color: #071247;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/*--------------------------------------------------------------
+# Toggling between light and dark mode
+--------------------------------------------------------------*/
+:root {
+  --body-color : #272829; 
+  --section-title-h2-color : #173b6c;
+  --background-color: #ffffff;
+  --skills-color : #050d18;
+  --resume-title-color : #050d18;
+  --resume-item-h5-color : #e4edf9;
+  --section-bg-color : #f5f8fd;
+  
+}
+
+.dark-mode {
+  --body-color: #d1d1d1;
+  --section-title-h2-color : #e0e0e0;
+  --background-color: #0a0e26;
+  --skills-color : #f8f9fa;
+  --resume-title-color : #f8f9fa;
+  --resume-item-h5-color : #080e31;
+  --section-bg-color : #19042e;
+  /* --section-bg-color : #080e31; */
+  .map{
+    filter:invert(92%) contrast(93%);
+  }
+
+}
+
+
 body {
   font-family: "Open Sans", sans-serif;
-  color: #272829;
+  /* color: #272829; */
+  color: var(--body-color);
+  background-color: var(--background-color);
 }
 
 a {
@@ -38,6 +140,36 @@ h6 {
   transform: translateY(0);
   opacity: 0.9;
 }
+/* 
+#About :
+heading : #173b6c
+content : #272829
+
+#Skills
+heading : #173b6c
+content : #0e1923
+skill in Progress : #050d18
+progress bar : #149ddd
+background : #f5f8fd
+
+#Resume
+heading : #173b6c
+content : #0c161e
+
+#Summary
+heading : #050d18
+content : #0c161e
+timeline background : #e4edf9
+
+#contact 
+heading : #173b6c
+content : #0c161e
+
+# sidebar 
+background : #040b14
+*/
+
+
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -76,6 +208,10 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh; /* Adjust this as needed */
   position: fixed;
   top: 0;
   left: 0;
@@ -153,6 +289,7 @@ h6 {
 /* Desktop Navigation */
 .nav-menu {
   padding: 30px 0 0 0;
+  
 }
 
 .nav-menu * {
@@ -164,6 +301,7 @@ h6 {
 .nav-menu>ul>li {
   position: relative;
   white-space: nowrap;
+  
 }
 
 .nav-menu a,
@@ -315,7 +453,7 @@ section {
 }
 
 .section-bg {
-  background: #f5f8fd;
+  background: var(--section-bg-color);
 }
 
 .section-title {
@@ -328,7 +466,8 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #173b6c;
+  /* color: #173b6c; */
+  color: var(--section-title-h2-color);
 }
 
 .section-title h2::after {
@@ -352,7 +491,8 @@ section {
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: #173b6c;
+  /* color: #173b6c; */
+  color: var(--about-h3-color);
 }
 
 .about .content ul {
@@ -433,7 +573,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Akills
+# Skills
 --------------------------------------------------------------*/
 .skills .progress {
   height: 60px;
@@ -449,7 +589,7 @@ section {
   display: block;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: #050d18;
+  color: var(--skills-color);
 }
 
 .skills .progress .skill .val {
@@ -477,7 +617,7 @@ section {
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #050d18;
+  color: var(--resume-title-color);
 }
 
 .resume .resume-item {
@@ -493,13 +633,13 @@ section {
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #050d18;
+  color: var(--resume-title-color);
   margin-bottom: 10px;
 }
 
 .resume .resume-item h5 {
   font-size: 16px;
-  background: #e4edf9;
+  background: var(--resume-item-h5-color);
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
@@ -852,7 +992,7 @@ section {
 
 .contact .info {
   padding: 30px;
-  background: #fff;
+  background: var(--background-color);
   width: 100%;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
@@ -863,7 +1003,7 @@ section {
   float: left;
   width: 44px;
   height: 44px;
-  background: #dff3fc;
+  background: var(--resume-item-h5-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -876,14 +1016,14 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #050d18;
+  color: var(--resume-title-color);
 }
 
 .contact .info p {
   padding: 0 0 10px 60px;
   margin-bottom: 20px;
   font-size: 14px;
-  color: #173b6c;
+  color: var(--section-title-h2-color);
 }
 
 .contact .info .email p {

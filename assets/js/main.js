@@ -1,6 +1,18 @@
 (function () {
   "use strict";
 
+
+  const checkbox = document.getElementById('checkbox');
+  const modeLabel = document.getElementById('mode-label');
+
+  checkbox.addEventListener('change', () => {
+    // Change the theme of the website
+    document.body.classList.toggle('dark-mode');
+
+    // Update the label text
+    modeLabel.textContent = document.body.classList.contains('dark-mode') ? 'Dark' : 'Light';
+  });
+  
   window.copyToClipboard = (text) =>{
     console.log("Copied To Clipboard : ",text);
     var tempInput = document.createElement('input');
