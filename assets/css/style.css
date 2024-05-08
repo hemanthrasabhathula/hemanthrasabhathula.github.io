@@ -12,8 +12,14 @@
   justify-content: flex-end;
   align-self: flex-start;
   position: sticky;
-  padding-bottom: 20px;
   padding-left: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .theme-switch-wrapper {
+    padding-bottom: 30px;
+  }
+  
 }
 
 .theme-switch-wrapper .theme-switch {
