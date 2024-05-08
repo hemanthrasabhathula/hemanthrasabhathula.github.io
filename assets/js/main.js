@@ -5,13 +5,24 @@
   const checkbox = document.getElementById('checkbox');
   const modeLabel = document.getElementById('mode-label');
 
+  document.addEventListener('click', function(event) {
+    const nav = select('#navbar'); // Replace '#navbar' with your navbar's selector
+    const body = select('body');
+    const button = select('.mobile-nav-toggle'); // Replace '.mobile-nav-toggle' with your button's selector
+    if (!nav.contains(event.target) && !button.isEqualNode(event.target) && body.classList.contains('mobile-nav-active')) {
+      body.classList.toggle('mobile-nav-active');
+      let navbarToggle = select('.mobile-nav-toggle')
+        navbarToggle.classList.toggle('bi-list')
+        navbarToggle.classList.toggle('bi-x')
+    }
+  });
+
   checkbox.addEventListener('change', () => {
     // Change the theme of the website
     document.body.classList.toggle('dark-mode');
-
     // Update the label text
     modeLabel.textContent = document.body.classList.contains('dark-mode') ? 'Dark' : 'Light';
-  });
+  });  
   
   window.copyToClipboard = (text) =>{
     console.log("Copied To Clipboard : ",text);

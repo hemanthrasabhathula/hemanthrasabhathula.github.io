@@ -13,6 +13,7 @@
   align-self: flex-start;
   position: sticky;
   bottom: 30px;
+  padding-left: 15px;
 }
 
 .theme-switch-wrapper .theme-switch {
@@ -646,6 +647,7 @@ section {
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .resume .resume-item ul {
