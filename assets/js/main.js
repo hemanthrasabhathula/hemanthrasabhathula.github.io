@@ -42,6 +42,32 @@
     }, 1000);
   }
 
+  let clickCount = 0;
+  let lastClickTime = 0;
+  const clickFrequencyLimit = 1000; // 1 second, adjust this as needed
+
+  window.countClicks = () => {
+    const currentTime = new Date().getTime();
+    if (currentTime - lastClickTime > clickFrequencyLimit) {
+      clickCount = 0; // Reset the count if the time between clicks is too long
+    }
+    lastClickTime = currentTime;
+    clickCount++;
+    console.log("clickCount: ", clickCount);
+    if (clickCount === 7) {
+    console.log("you clicked 7 times");
+    const floatingMessage = document.createElement('div');
+    floatingMessage.classList.add('floating-message');
+    floatingMessage.textContent = "Yep..! ;) That's My Name";
+    document.body.appendChild(floatingMessage);
+    setTimeout(() => {
+      document.body.removeChild(floatingMessage);
+    }, 2000);
+      clickCount = 0; // Reset the count
+    }
+  }
+
+
   /**
    * Easy selector helper function
    */
