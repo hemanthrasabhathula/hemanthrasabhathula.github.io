@@ -479,6 +479,17 @@ section {
   color: var(--section-title-h2-color);
 }
 
+.section-title h2 a {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  /* color: #173b6c; */
+  color: var(--section-title-h2-color);
+}
+
+
 .section-title h2::after {
   content: "";
   position: absolute;
