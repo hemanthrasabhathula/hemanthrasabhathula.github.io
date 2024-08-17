@@ -386,6 +386,7 @@ background : #040b14
   left: 0;
   right: 0;
   z-index: 1;
+  height: 100vh;
 }
 
 #home .home-container {
