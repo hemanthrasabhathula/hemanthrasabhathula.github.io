@@ -2,7 +2,6 @@
 # General
 --------------------------------------------------------------*/
 
-
 /*--------------------------------------------------------------
 # toggle switch
 --------------------------------------------------------------*/
@@ -19,7 +18,6 @@
   .theme-switch-wrapper {
     padding-bottom: 30px;
   }
-  
 }
 
 .theme-switch-wrapper .theme-switch {
@@ -38,7 +36,7 @@
 }
 
 .theme-switch input {
-  display:none;
+  display: none;
 }
 
 .slider {
@@ -49,7 +47,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -59,7 +57,7 @@
   height: 22px;
   left: 4px;
   position: absolute;
-  transition: .4s;
+  transition: 0.4s;
   width: 22px;
 }
 
@@ -79,36 +77,32 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-
 /*--------------------------------------------------------------
 # Toggling between light and dark mode
 --------------------------------------------------------------*/
 :root {
-  --body-color : #272829; 
-  --section-title-h2-color : #173b6c;
+  --body-color: #272829;
+  --section-title-h2-color: #173b6c;
   --background-color: #ffffff;
-  --skills-color : #050d18;
-  --resume-title-color : #050d18;
-  --resume-item-h5-color : #e4edf9;
-  --section-bg-color : #f5f8fd;
-  
+  --skills-color: #050d18;
+  --resume-title-color: #050d18;
+  --resume-item-h5-color: #e4edf9;
+  --section-bg-color: #f5f8fd;
 }
 
 .dark-mode {
   --body-color: #d1d1d1;
-  --section-title-h2-color : #e0e0e0;
+  --section-title-h2-color: #e0e0e0;
   --background-color: #0a0e26;
-  --skills-color : #f8f9fa;
-  --resume-title-color : #f8f9fa;
-  --resume-item-h5-color : #080e31;
-  --section-bg-color : #19042e;
+  --skills-color: #f8f9fa;
+  --resume-title-color: #f8f9fa;
+  --resume-item-h5-color: #080e31;
+  --section-bg-color: #19042e;
   /* --section-bg-color : #080e31; */
-  .map{
-    filter:invert(92%) contrast(93%);
+  .map {
+    filter: invert(92%) contrast(93%);
   }
-
 }
-
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -178,8 +172,6 @@ content : #0c161e
 background : #040b14
 */
 
-
-
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -220,7 +212,7 @@ background : #040b14
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh; /* Adjust this as needed */
+  height: 100dvh; /* Adjust this as needed */
   position: fixed;
   top: 0;
   left: 0;
@@ -298,7 +290,6 @@ background : #040b14
 /* Desktop Navigation */
 .nav-menu {
   padding: 30px 0 0 0;
-  
 }
 
 .nav-menu * {
@@ -307,10 +298,9 @@ background : #040b14
   list-style: none;
 }
 
-.nav-menu>ul>li {
+.nav-menu > ul > li {
   position: relative;
   white-space: nowrap;
-  
 }
 
 .nav-menu a,
@@ -334,7 +324,7 @@ background : #040b14
 .nav-menu a:hover,
 .nav-menu .active,
 .nav-menu .active:focus,
-.nav-menu li:hover>a {
+.nav-menu li:hover > a {
   text-decoration: none;
   color: #fff;
 }
@@ -342,7 +332,7 @@ background : #040b14
 .nav-menu a:hover i,
 .nav-menu .active i,
 .nav-menu .active:focus i,
-.nav-menu li:hover>a i {
+.nav-menu li:hover > a i {
   color: #149ddd;
 }
 
@@ -381,7 +371,7 @@ background : #040b14
 --------------------------------------------------------------*/
 #home {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   background: url("../img/background-img.jpg") top center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -410,7 +400,6 @@ background : #040b14
   font-weight: 700;
   line-height: 56px;
   color: #fff;
-
 }
 
 #home p {
@@ -434,7 +423,6 @@ background : #040b14
 }
 
 @media (max-width: 768px) {
-
   #home {
     /* display: flex !important;
     flex-direction: column-reverse !important; */
@@ -488,7 +476,6 @@ section {
   /* color: #173b6c; */
   color: var(--section-title-h2-color);
 }
-
 
 .section-title h2::after {
   content: "";
@@ -775,7 +762,7 @@ section {
   background: rgba(20, 157, 221, 0.95);
 }
 
-.portfolio .portfolio-wrap .portfolio-links a+a {
+.portfolio .portfolio-wrap .portfolio-links a + a {
   border-left: 1px solid #37b3ed;
 }
 
@@ -808,7 +795,10 @@ section {
   position: relative;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: #fff;
@@ -816,7 +806,10 @@ section {
   border: 1px solid #149ddd;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet-active {
   background-color: #149ddd;
 }
 
@@ -839,7 +832,7 @@ section {
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li+li {
+.portfolio-details .portfolio-info ul li + li {
   margin-top: 10px;
 }
 
@@ -1111,7 +1104,7 @@ section {
   font-weight: 600;
 }
 
-.contact .php-email-form .error-message br+br {
+.contact .php-email-form .error-message br + br {
   margin-top: 25px;
 }
 
@@ -1167,7 +1160,7 @@ section {
   padding: 10px 15px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type="submit"] {
   background: #149ddd;
   border: 0;
   padding: 10px 24px;
@@ -1176,7 +1169,7 @@ section {
   border-radius: 4px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type="submit"]:hover {
   background: #37b3ed;
 }
 
@@ -1222,11 +1215,11 @@ section {
   font-size: 15px;
 }
 
-.breadcrumbs ol li+li {
+.breadcrumbs ol li + li {
   padding-left: 10px;
 }
 
-.breadcrumbs ol li+li::before {
+.breadcrumbs ol li + li::before {
   display: inline-block;
   padding-right: 10px;
   color: #0e2442;
