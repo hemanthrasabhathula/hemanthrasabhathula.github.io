@@ -32,7 +32,6 @@ export default function NavBar({ className, toggleNavBar }: NavBarProps) {
       // Update state only if the section has changed
       setActiveSection((prevSection) => {
         if (prevSection !== currentSection) {
-          console.log(`Section changed: ${currentSection}`);
           return currentSection;
         }
         return prevSection;

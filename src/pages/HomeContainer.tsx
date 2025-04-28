@@ -28,12 +28,6 @@ const HomeContainer = React.memo(
       };
     }, []);
 
-    console.log("HomeContainer props:", {
-      className,
-      isNavBarOpen,
-      toggleNavBar,
-    });
-    console.log("HomeContainer rendered");
     return (
       <>
         <section
