@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@import "@fontsource/poppins/100.css";
+@import "@fontsource/poppins/200.css";
+@import "@fontsource/poppins/300.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/800.css";
+@import "@fontsource/poppins/900.css";
+@import "@fontsource/raleway/100.css";
+@import "@fontsource/raleway/200.css";
+@import "@fontsource/raleway/300.css";
+@import "@fontsource/raleway/400.css";
+@import "@fontsource/raleway/500.css";
+@import "@fontsource/raleway/600.css";
+@import "@fontsource/raleway/700.css";
+@import "@fontsource/raleway/800.css";
+@import "@fontsource/raleway/900.css";
+
+@theme {
+  /* LIGHT BLUE  */
+  --color-highlight-blue: #149ddd;
+  --color-highlight-blue-hover: #193cb8;
+
+  /* SECTION COLORS */
+  --color-section-primary: #ffffff;
+  --color-section-secondary: #f5f8fd;
+  --color-section-title-h2: #173b6c;
+  --color-section-underline: var(--color-highlight-blue);
+  --color-section-bullets: var(--color-section-underline);
+
+  /* FONT COLORS */
+  --color-body-text: #272829;
+
+  /* PROGRESS BAR COLORS */
+  --color-progress-foreground: var(--color-highlight-blue);
+
+  --color-progress-background: #dce8f8;
+
+  /* RESUME COLORS */
+  --color-resume-line-border: #1f5297;
+  --color-resume-heading-h3: #050d18;
+  --color-resume-date-item: #e4edf9;
+
+  /* CONTACT HOVER */
+  --color-contact-icon: var(--color-highlight-blue);
+  --color-contact-icon-hover: var(--color-resume-date-item);
+  --color-contact-icon-bg: var(--color-resume-date-item);
+  --color-contact-icon-bg-hover: var(--color-highlight-blue);
+
+  /* NAVBAR COLORS */
+  --color-nav-bar-bg: #040b14;
+  --color-profile-outline: #2c2f3f;
+  --color-social-icons-bg: #212431;
+  --color-social-icons-bg-hover: var(--color-highlight-blue);
+}
+
+.typed-cursor {
+  border-bottom: 3px solid #149ddd;
+  padding-bottom: 4px;
+}
+
+/* body {
+  font-family: "Poppins";
+} */
+
+body {
+  font-family: "open sans", sans-serif;
+  color: var(--color-body-text);
+}
+
+.waving-hand {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  30% {
+    transform: rotate(-8deg);
+  }
+  40% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  60% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+} */
+
+/* 
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
