@@ -1,54 +1,174 @@
-# React + TypeScript + Vite
+# Hemanth Rasabhathula's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a personal portfolio website built using modern web technologies. It showcases my skills, projects, and professional experience as a software engineer.
 
-Currently, two official plugins are available:
+## 🚀 Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Frontend
 
-## Expanding the ESLint configuration
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A strongly typed programming language that builds on JavaScript.
+- **Vite**: A fast build tool and development server for modern web projects.
+- **Tailwind CSS**: A utility-first CSS framework for styling.
+- **AOS (Animate On Scroll)**: A library for adding scroll-based animations.
+- **Lottie**: For rendering animations using JSON files.
+- **Lucide Icons**: A collection of customizable icons for React.
+- **React Icons**: For additional icon support.
+- **Typed.js**: A library for creating typing animations.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Backend
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **GitHub Pages**: Used for hosting the static site.
+
+### Build Tools
+
+- **Vite**: For bundling and serving the application.
+- **ESLint**: For linting and maintaining code quality.
+- **TypeScript Compiler**: For type-checking and transpiling TypeScript code.
+
+### CI/CD
+
+- **GitHub Actions**: Automates the deployment process to GitHub Pages.
+
+### Fonts
+
+- **Poppins** and **Raleway**: Custom fonts imported via `@fontsource`.
+
+---
+
+## 📂 Project Structure
+
+```
+.gitignore
+eslint.config.js
+index.html
+package.json
+README.md
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+.github/
+  workflows/
+    deploy.yml
+public/
+  apple-touch-icon.png
+  favicon-96x96.png
+  favicon.ico
+  favicon.svg
+  opengraph-image.png
+  site.webmanifest
+  web-app-manifest-192x192.png
+  web-app-manifest-512x512.png
+src/
+  App.css
+  App.tsx
+  declaration.d.ts
+  index.css
+  main.tsx
+  vite-env.d.ts
+  assets/
+    background-img.jpg
+  components/
+    Name.tsx
+    ProgressBar.tsx
+    TypedComponent.tsx
+    NavBar.tsx
+  lib/
+    utils.ts
+    ClassNameProps.ts
+  pages/
+    About.tsx
+    Contact.tsx
+    HomeContainer.tsx
+    Resume.tsx
+    Skills.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Features
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- **Responsive Design**: Fully responsive layout for all devices.
+- **Dynamic Animations**: Smooth animations using AOS and Lottie.
+- **Typed Text**: Dynamic typing animations using Typed.js.
+- **Dark Overlay**: Background overlay for better readability.
+- **Scroll-Based Navigation**: Highlights the active section in the navigation bar.
+- **Progress Bars**: Animated skill progress bars.
+- **Custom Icons**: Icons for navigation and social links using Lucide and React Icons.
+- **Google Maps Integration**: Embedded map for the contact section.
+
+---
+
+## 📦 Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/hemanthrasabhathula/hemanthrasabhathula.github.io.git
+   cd hemanthrasabhathula.github.io
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open the app in your browser:
+   ```
+   http://localhost:5173
+   ```
+
+---
+
+## 🛠️ Build and Deployment
+
+### Build
+
+To build the project for production:
+
+```bash
+npm run build
 ```
+
+The output will be in the `dist` folder.
+
+### Deployment
+
+The project is automatically deployed to **GitHub Pages** using **GitHub Actions**. The deployment workflow is defined in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+---
+
+## 🌟 Highlights
+
+- **Custom Components**: Reusable components like `NavBar`, `ProgressBar`, and `TypedComponent`.
+- **Tailwind CSS Utilities**: Simplified styling with utility classes.
+- **TypeScript Support**: Ensures type safety and better developer experience.
+- **Animations**: Smooth animations for better user experience.
+- **SEO Optimized**: Includes Open Graph meta tags for better sharing.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👨‍💻 Author
+
+**Hemanth Rasabhathula**
+
+- [GitHub](https://github.com/hemanthrasabhathula)
+- [LinkedIn](https://www.linkedin.com/in/hemanth-rasabhathula)
+- [Twitter](https://twitter.com/_HemanthR)
+- [Portfolio](https://www.hemanthrasabhathula.co.in)
+
+Feel free to reach out if you have any questions or feedback!
