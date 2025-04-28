@@ -1,6 +1,6 @@
 import { ArrowUp, Menu, X } from "lucide-react";
 import Name from "../components/Name";
-import { ClassNameProps } from "../lib/ClassNameProps";
+import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React, { useEffect, useState } from "react";
 

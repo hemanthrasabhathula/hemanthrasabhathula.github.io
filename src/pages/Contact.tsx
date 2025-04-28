@@ -1,5 +1,5 @@
 import { Mail, MapPin } from "lucide-react";
-import { ClassNameProps } from "../lib/ClassNameProps";
+import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React from "react";
 

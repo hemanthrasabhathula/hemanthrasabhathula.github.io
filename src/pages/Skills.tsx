@@ -1,5 +1,5 @@
 import ProgressBar from "../components/ProgressBar";
-import { ClassNameProps } from "../lib/ClassNameProps";
+import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 
 export default function Skills({ className }: ClassNameProps) {

@@ -1,5 +1,5 @@
 import React from "react";
-import { ClassNameProps } from "../lib/ClassNameProps";
+import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import TypedComponent from "./TypedComponent";
 

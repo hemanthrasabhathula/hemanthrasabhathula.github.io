@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import { ClassNameProps } from "../lib/ClassNameProps";
+import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import profileImg from "../assets/profile-image-about.jpg";
 

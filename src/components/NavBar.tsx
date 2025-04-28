@@ -1,5 +1,5 @@
 import { File, Home, Mail, UserRound } from "lucide-react";
-import { ClassNameProps } from "../lib/ClassNameProps";
+import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import { LuGithub, LuInstagram, LuLinkedin, LuTwitter } from "react-icons/lu";
 import { FaChartSimple } from "react-icons/fa6";
