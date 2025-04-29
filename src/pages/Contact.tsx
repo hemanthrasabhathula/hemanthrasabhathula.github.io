@@ -2,9 +2,10 @@ import { Mail, MapPin } from "lucide-react";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React from "react";
+import { CONTACT, CONTACT_ID, EMAIL } from "../lib/constants";
 
 export default function Contact({ className }: ClassNameProps) {
-  const title = "Contact";
+  const title = CONTACT;
 
   const contactItems = [
     {
@@ -15,7 +16,7 @@ export default function Contact({ className }: ClassNameProps) {
     {
       icon: <Mail className="size-5" />,
       title: "Email",
-      value: "hemanth.rasabhathula@gmail.com",
+      value: EMAIL,
     },
   ];
 
@@ -23,7 +24,7 @@ export default function Contact({ className }: ClassNameProps) {
     <>
       <section
         className={cn("flex flex-col justify-center p-4 py-12", className)}
-        id="contact"
+        id={CONTACT_ID}
       >
         <div className="pb-8">
           <div className="relative mb-5 pb-5">

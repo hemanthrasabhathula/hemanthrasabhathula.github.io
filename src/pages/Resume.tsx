@@ -1,3 +1,4 @@
+import { RESUME_ID } from "../lib/constants";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React from "react";
@@ -11,7 +12,7 @@ export default function Resume({ className }: ClassNameProps) {
     <>
       <section
         className={cn("flex flex-col justify-center p-4 py-12", className)}
-        id="resume"
+        id={RESUME_ID}
       >
         {/* RESUME HEADLINE */}
         <div className="relative mb-5 pb-5">

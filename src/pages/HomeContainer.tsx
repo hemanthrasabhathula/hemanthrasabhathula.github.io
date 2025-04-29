@@ -3,6 +3,7 @@ import Name from "../components/Name";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React, { useEffect, useState } from "react";
+import { HOME_ID } from "../lib/constants";
 
 interface HomeContainerProps extends ClassNameProps {
   toggleNavBar: () => void;
@@ -35,7 +36,7 @@ const HomeContainer = React.memo(
             "h-svh flex flex-col items-center justify-center p-4 relative",
             className
           )}
-          id="home"
+          id={HOME_ID}
         >
           {/* Toggle Button */}
           <div

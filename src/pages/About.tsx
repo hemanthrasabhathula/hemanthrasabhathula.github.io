@@ -2,9 +2,10 @@ import { ChevronRight } from "lucide-react";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import profileImg from "../assets/profile-image-about.jpg";
+import { ABOUT, ABOUT_ID, EMAIL, WEBSITE } from "../lib/constants";
 
 export default function About({ className }: ClassNameProps) {
-  const title = "About";
+  const title = ABOUT;
   const role = "Software Developer";
   const description =
     "I am a highly motivated and detail-oriented individual with a passion for technology. I have a strong background in computer science and have been working as a developer since 2018. In my free time, I enjoy reading about cutting-edge technologies, experimenting with new programming languages and building personal projects.";
@@ -12,12 +13,12 @@ export default function About({ className }: ClassNameProps) {
   const personalInfo = [
     {
       label: "Website",
-      value: "www.hemanthrasabhathula.co.in",
-      link: "https://www.hemanthrasabhathula.co.in",
+      value: WEBSITE,
+      link: WEBSITE ? `https://${WEBSITE}` : "#",
     },
     { label: "Education", value: "MSc in Computer Science" },
     { label: "City", value: "Lee's Summit, MO" },
-    { label: "Email", value: "Hemanth.Rasabhathula@gmail.com" },
+    { label: "Email", value: EMAIL },
     {
       label: "Linkedin",
       value: "in/hemanth-rasabhathula",
@@ -35,7 +36,7 @@ export default function About({ className }: ClassNameProps) {
           "overflow-hidden flex flex-col justify-center p-4 py-12 w-full",
           className
         )}
-        id="about"
+        id={ABOUT_ID}
       >
         <div className="pb-8">
           <div className="relative mb-5 pb-5">
