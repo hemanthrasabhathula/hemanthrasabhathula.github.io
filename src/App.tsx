@@ -24,12 +24,16 @@ function App() {
         className={`${isNavBarOpen ? "left-0" : "-left-96"} md:left-0 md:w-72`}
         toggleNavBar={toggleNavBar}
       />
-      {isNavBarOpen && (
-        <div
-          className="fixed inset-0 bg-black opacity-10 z-49 md:hidden"
-          onClick={toggleNavBar}
-        ></div>
-      )}
+
+      {/* Overlay for navbar open */}
+
+      <div
+        className={`fixed inset-0 bg-black z-49 md:hidden transition-opacity duration-300 ease-in-out ${
+          isNavBarOpen ? "opacity-10 visible" : "opacity-0 invisible"
+        }`}
+        onClick={toggleNavBar}
+      ></div>
+
       {/* Main Content */}
       <div className="md:ml-72 flex flex-col w-full transition-all duration-300 ease-in-out">
         {/* Background Image */}

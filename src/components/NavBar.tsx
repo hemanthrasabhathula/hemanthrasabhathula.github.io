@@ -82,7 +82,7 @@ export default function NavBar({ className, toggleNavBar }: NavBarProps) {
     <>
       <header
         className={cn(
-          `fixed top-0 h-screen bg-nav-bar-bg z-50 flex flex-col items-center py-10 px-4 space-y-6 transition-all duration-500 ease-in-out font-[poppins] rounded-r-[8px]`,
+          `fixed top-0 h-screen bg-nav-bar-bg z-50 flex flex-col items-center py-10 px-4 space-y-6 transition-all duration-400 ease-in-out font-[poppins] rounded-r-[8px]`,
           className
         )}
       >

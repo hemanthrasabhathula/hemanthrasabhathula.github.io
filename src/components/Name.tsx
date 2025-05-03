@@ -2,6 +2,7 @@ import React from "react";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import TypedComponent from "./TypedComponent";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Name = React.memo(({ className }: ClassNameProps) => {
   const typedStrings = [
@@ -30,9 +31,10 @@ const Name = React.memo(({ className }: ClassNameProps) => {
         <span>{name.firstName}</span>
         <span>{name.lastName}</span>
         <p className="text-2xl mt-3 font-medium font-[poppins]">
-          <span className="waving-hand">👋</span> I'am a &lt;
+          <span className="waving-hand">👋</span> I'am a
+          <ChevronLeft className="inline-block" />
           <TypedComponent strings={typedStrings} />
-          &gt;
+          <ChevronRight className="inline-block" />
         </p>
       </div>
     </>
