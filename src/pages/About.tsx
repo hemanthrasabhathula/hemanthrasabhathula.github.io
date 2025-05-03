@@ -59,6 +59,7 @@ export default function About({ className }: ClassNameProps) {
               src={profileImg}
               className="object-cover rounded-[3%]"
               alt="Profile"
+              loading="lazy"
             />
           </div>
           <div

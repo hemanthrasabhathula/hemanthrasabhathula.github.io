@@ -91,6 +91,7 @@ export default function NavBar({ className, toggleNavBar }: NavBarProps) {
             src={profileImg}
             alt="Logo"
             className="w-30 h-30 rounded-full border-8 border-profile-outline"
+            loading="lazy"
           />
           <h1 className="text-[22px] font-[600] text-white text-center">
             <a href="/">{name}</a>
