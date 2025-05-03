@@ -1,8 +1,8 @@
 import { File, Home, Mail, UserRound } from "lucide-react";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
-import { LuGithub, LuInstagram, LuLinkedin, LuTwitter } from "react-icons/lu";
-import { FaChartSimple } from "react-icons/fa6";
+import { LuGithub, LuInstagram, LuLinkedin } from "react-icons/lu";
+import { FaChartSimple, FaXTwitter } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import profileImg from "../assets/profile-image-cropped.jpg";
 import {
@@ -30,11 +30,11 @@ export default function NavBar({ className, toggleNavBar }: NavBarProps) {
       icon: <LuLinkedin />,
       link: LINKEDIN_URL,
     },
-    { icon: <LuTwitter />, link: TWITTER_URL },
     {
       icon: <LuInstagram />,
       link: INSTAGRAM_URL,
     },
+    { icon: <FaXTwitter />, link: TWITTER_URL },
   ];
 
   const navItems = [
