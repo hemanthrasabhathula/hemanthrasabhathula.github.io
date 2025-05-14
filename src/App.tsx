@@ -48,7 +48,7 @@ function App() {
             toggleNavBar={toggleNavBar}
             isNavBarOpen={isNavBarOpen}
           />
-          <About className="bg-section-primary rounded-t-[8px]" />
+          <About className="bg-section-primary rounded-t-[24px] md:rounded-t-[16px]" />
           <Skills className="bg-section-secondary" />
           <Resume className="bg-section-primary" />
           <Contact className="bg-section-secondary" />
