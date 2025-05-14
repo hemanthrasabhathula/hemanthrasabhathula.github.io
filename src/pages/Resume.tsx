@@ -1,4 +1,4 @@
-import { RESUME_ID } from "../lib/constants";
+import { EMAIL, LOCATION, RESUME_ID } from "../lib/constants";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React from "react";
@@ -57,7 +57,7 @@ const SummarySection = () => {
   const name = "Hemanth Rasabhathula";
   const summaryDescription =
     "Deadline-driven and innovative software developer with experience in designing and developing user-centered software solutions from initial concept to the polished end product.";
-  const summaryItems = ["Lee's Summit, MO", "hemanth.rasabhathula@gmail.com"];
+  const summaryItems = [LOCATION, EMAIL];
 
   return (
     <>
@@ -90,7 +90,7 @@ const SummarySection = () => {
 const EducationSection = ({ className }: ClassNameProps) => {
   const title = "Education";
   const degree = "MSc in Computer Science";
-  const duration = "2024 - Present";
+  const duration = "2024 - 2025";
   const university = "UCM - Missouri, US";
   const description =
     "I am currently pursuing my Master of Science degree in Computer Science at the University of Central Missouri, where I focus on the fields of Artificial Intelligence and Machine Learning.";
@@ -191,7 +191,7 @@ const ProjectsSection = ({ className }: ClassNameProps) => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-highlight-blue hover:text-highlight-blue-hover"
+                    className="text-highlight-blue hover:text-highlight-blue-hover hover:underline"
                   >
                     <h6 className="font-[raleway] font-medium">
                       {project.name}
@@ -218,8 +218,31 @@ const ProfessionalExperienceSection = () => {
 
   const jobs = [
     {
+      title: "Full-Stack Engineer (Intern)",
+      companyName: "Blockhouse Labs",
+      companyLink: "https://blockhouse.app/",
+      location: "NYC, US",
+      duration: "Sep 2024 - Dec 2024",
+      responsibilities: [
+        "Built and maintained full-stack web applications using Next.js, Prisma, TypeScript, and Django, delivering over 25 key features while ensuring pixel-perfect translation of designs from Figma.",
+        "Refined application performance by implementing efficient API calls, caching strategies, and PostgreSQL query optimization, improving response time by 30%.",
+        "Established a Cypress end-to-end testing suite for core functionalities, achieving 95% test coverage and ensuring robust application quality and reliability. ",
+        "Set up an automated CI/CD pipeline with GitHub Actions to run Cypress tests on Pull Requests, reducing manual testing effort by 40%.",
+        "Participated in Agile methodologies, using PostHog for application monitoring and optimizations that enhanced user experience by 20%.",
+      ],
+      icon: (
+        <lord-icon
+          src="https://cdn.lordicon.com/mebvgwrs.json"
+          trigger="loop"
+          delay="3000"
+          stroke="bold"
+        />
+      ),
+    },
+    {
       title: "Software Engineer",
       companyName: "Optum",
+      companyLink: "https://www.optum.com",
       location: "Hyderabad, IN",
       duration: "2021 - 2023",
       responsibilities: [
@@ -242,6 +265,7 @@ const ProfessionalExperienceSection = () => {
     {
       title: "Senior Software Developer",
       companyName: "Mindtree Ltd",
+      companyLink: "https://www.ltimindtree.com/",
       location: "Bangalore, IN",
       duration: "2018 - 2021",
       responsibilities: [
@@ -282,7 +306,10 @@ const ProfessionalExperienceSection = () => {
               <h5 className="text-[1rem] px-3 py-1 bg-resume-date-item w-fit rounded-[5px] text-section-title-h2 font-[600] font-[Raleway]">
                 {job.duration}
               </h5>
-              <p className="text-[1rem] text-section-title-h2 pb-3 pt-2">
+              <p
+                className="text-[1rem] text-section-title-h2 pb-3 pt-2 cursor-pointer hover:underline"
+                onClick={() => window.open(job.companyLink, "_blank")}
+              >
                 <em>
                   {job.companyName} - {job.location}
                 </em>

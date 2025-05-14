@@ -16,3 +16,4 @@ export const TWITTER_URL = "https://twitter.com/_HemanthR";
 export const INSTAGRAM_URL = "https://www.instagram.com/hemanth.rasabhathula";
 export const EMAIL = "Hemanth.Rasabhathula@gmail.com";
 export const WEBSITE = "www.hemanthrasabhathula.co.in";
+export const LOCATION = "Lee's Summit, MO";

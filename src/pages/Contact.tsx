@@ -2,7 +2,7 @@ import { Mail, MapPin } from "lucide-react";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React from "react";
-import { CONTACT, CONTACT_ID, EMAIL } from "../lib/constants";
+import { CONTACT, CONTACT_ID, EMAIL, LOCATION } from "../lib/constants";
 
 export default function Contact({ className }: ClassNameProps) {
   const title = CONTACT;
@@ -11,7 +11,7 @@ export default function Contact({ className }: ClassNameProps) {
     {
       icon: <MapPin className="size-5" />,
       title: "Location",
-      value: "Lee's Summit, MO",
+      value: LOCATION,
     },
     {
       icon: <Mail className="size-5" />,
