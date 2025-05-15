@@ -23,7 +23,10 @@ export default function Contact({ className }: ClassNameProps) {
   return (
     <>
       <section
-        className={cn("flex flex-col justify-center p-4 py-12", className)}
+        className={cn(
+          "overflow-hidden flex flex-col justify-center p-4 py-12",
+          className
+        )}
         id={CONTACT_ID}
       >
         <div className="pb-8">

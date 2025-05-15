@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface ProgressBarProps {
   skill: string; // Progress value between 0 and 100
@@ -7,17 +8,19 @@ interface ProgressBarProps {
 
 export default function ProgressBar({ skill, progress }: ProgressBarProps) {
   const [currentWidth, setCurrentWidth] = useState(0);
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   useEffect(() => {
+    if (!inView) return; // Only run if the component is in view
     // Trigger the transition after the component mounts
     const timeout = setTimeout(() => {
       setCurrentWidth(progress);
     }, 100); // Add a slight delay to ensure the transition is visible
     return () => clearTimeout(timeout);
-  }, [progress]);
+  }, [inView, progress]);
 
   return (
-    <div>
+    <div ref={ref}>
       <div className="flex justify-between items-center mb-2">
         <span className="text-[0.75rem] font-bold text-section-title-h2">
           {skill}
