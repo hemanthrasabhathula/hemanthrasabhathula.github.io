@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import NavBar from "./components/NavBar";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -13,9 +13,9 @@ export interface NavBarProps {
 function App() {
   const [isNavBarOpen, setIsNavBarOpen] = useState(false);
 
-  const toggleNavBar = () => {
+  const toggleNavBar = useCallback(() => {
     setIsNavBarOpen((prev) => !prev);
-  };
+  }, []);
 
   return (
     <div className="flex">

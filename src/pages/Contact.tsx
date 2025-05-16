@@ -4,7 +4,7 @@ import { cn } from "../lib/utils";
 import React from "react";
 import { CONTACT, CONTACT_ID, EMAIL, LOCATION } from "../lib/constants";
 
-export default function Contact({ className }: ClassNameProps) {
+const Contact = React.memo(({ className }: ClassNameProps) => {
   const title = CONTACT;
 
   const contactItems = [
@@ -96,4 +96,5 @@ export default function Contact({ className }: ClassNameProps) {
       </section>
     </>
   );
-}
+});
+export default Contact;

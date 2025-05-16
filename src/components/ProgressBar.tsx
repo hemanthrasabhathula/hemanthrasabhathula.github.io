@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 interface ProgressBarProps {
@@ -6,7 +6,7 @@ interface ProgressBarProps {
   progress: number; // Optional label to display
 }
 
-export default function ProgressBar({ skill, progress }: ProgressBarProps) {
+const ProgressBar = React.memo(({ skill, progress }: ProgressBarProps) => {
   const [currentWidth, setCurrentWidth] = useState(0);
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
@@ -37,4 +37,5 @@ export default function ProgressBar({ skill, progress }: ProgressBarProps) {
       </div>
     </div>
   );
-}
+});
+export default ProgressBar;

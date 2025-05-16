@@ -3,7 +3,7 @@ import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import { LuGithub, LuInstagram, LuLinkedin } from "react-icons/lu";
 import { FaChartSimple, FaXTwitter } from "react-icons/fa6";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import profileImg from "../assets/profile-image-cropped.jpg";
 import {
   ABOUT,
@@ -22,7 +22,7 @@ interface NavBarProps extends ClassNameProps {
   toggleNavBar: () => void;
 }
 
-export default function NavBar({ className, toggleNavBar }: NavBarProps) {
+const NavBar = React.memo(({ className, toggleNavBar }: NavBarProps) => {
   const name = "Hemanth Rasabhathula";
   const socialIcons = [
     { icon: <LuGithub />, link: GITHUB_URL },
@@ -134,4 +134,6 @@ export default function NavBar({ className, toggleNavBar }: NavBarProps) {
       </header>
     </>
   );
-}
+});
+
+export default NavBar;

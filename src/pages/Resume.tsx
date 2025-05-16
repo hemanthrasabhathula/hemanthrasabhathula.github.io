@@ -3,7 +3,7 @@ import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React from "react";
 
-export default function Resume({ className }: ClassNameProps) {
+const Resume = React.memo(({ className }: ClassNameProps) => {
   const title = "Resume";
   const resumeDescription =
     "As a highly skilled and experienced software engineer with over 6 years of experience in the field, I am well-versed in a variety of development methodologies, I am always looking for new opportunities to learn and grow. With my ability to think strategically and communicate effectively, I am confident in my ability to make a valuable contribution to any organization.";
@@ -50,7 +50,8 @@ export default function Resume({ className }: ClassNameProps) {
       </section>
     </>
   );
-}
+});
+export default Resume;
 
 const SummarySection = () => {
   const title = "Summary";

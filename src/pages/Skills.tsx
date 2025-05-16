@@ -1,9 +1,10 @@
+import React from "react";
 import ProgressBar from "../components/ProgressBar";
 import { SKILLS, SKILLS_ID } from "../lib/constants";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 
-export default function Skills({ className }: ClassNameProps) {
+const Skills = React.memo(({ className }: ClassNameProps) => {
   const title = SKILLS;
   const skillsDescription =
     "As an accomplished developer, I possess a profound expertise in a wide array of programming languages, including Java, Kotlin, Python and JavaScript. My proficiency extends to cutting-edge web development technologies, encompassing Angular, React, and HTML&CSS. Furthermore, I have a substantial background in database management and a comprehensive grasp of SQL.";
@@ -65,4 +66,5 @@ export default function Skills({ className }: ClassNameProps) {
       </section>
     </>
   );
-}
+});
+export default Skills;

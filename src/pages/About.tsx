@@ -3,8 +3,9 @@ import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import profileImg from "../assets/profile-image-about.jpg";
 import { ABOUT, ABOUT_ID, EMAIL, WEBSITE } from "../lib/constants";
+import React from "react";
 
-export default function About({ className }: ClassNameProps) {
+const About = React.memo(({ className }: ClassNameProps) => {
   const title = ABOUT;
   const role = "Software Developer";
   const description =
@@ -106,4 +107,5 @@ export default function About({ className }: ClassNameProps) {
       </section>
     </>
   );
-}
+});
+export default About;
