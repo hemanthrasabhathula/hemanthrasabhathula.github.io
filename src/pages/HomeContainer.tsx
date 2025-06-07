@@ -3,7 +3,10 @@ import Name from "../components/Name";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React, { useEffect, useState } from "react";
-import { HOME_ID } from "../lib/constants";
+import { SECTION_ID } from "../lib/constants";
+import { useDispatch } from "react-redux";
+import { useInView } from "react-intersection-observer";
+import { setActiveSection } from "../lib/navSlice";
 
 interface HomeContainerProps extends ClassNameProps {
   toggleNavBar: () => void;
@@ -29,6 +32,15 @@ const HomeContainer = React.memo(
       };
     }, []);
 
+    const dispatch = useDispatch();
+    const { ref, inView } = useInView({ threshold: 0.5 });
+
+    useEffect(() => {
+      if (inView) {
+        dispatch(setActiveSection(SECTION_ID.HOME));
+      }
+    }, [inView, dispatch]);
+
     return (
       <>
         <section
@@ -36,7 +48,8 @@ const HomeContainer = React.memo(
             "h-svh flex flex-col items-center justify-center p-4 relative",
             className
           )}
-          id={HOME_ID}
+          id={SECTION_ID.HOME}
+          ref={ref}
         >
           {/* Toggle Button */}
           <div

@@ -1,24 +1,37 @@
 import { Mail, MapPin } from "lucide-react";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
-import React from "react";
-import { CONTACT, CONTACT_ID, EMAIL, LOCATION } from "../lib/constants";
+import React, { useEffect } from "react";
+import { SECTION, PROFILE } from "../lib/constants";
+import { useDispatch } from "react-redux";
+import { useInView } from "react-intersection-observer";
+import { setActiveSection } from "../lib/navSlice";
+import { SECTION_ID } from "../lib/constants";
 
 const Contact = React.memo(({ className }: ClassNameProps) => {
-  const title = CONTACT;
+  const title = SECTION.CONTACT;
 
   const contactItems = [
     {
       icon: <MapPin className="size-5" />,
       title: "Location",
-      value: LOCATION,
+      value: PROFILE.LOCATION,
     },
     {
       icon: <Mail className="size-5" />,
       title: "Email",
-      value: EMAIL,
+      value: PROFILE.EMAIL,
     },
   ];
+
+  const dispatch = useDispatch();
+  const { ref, inView } = useInView({ threshold: 0.5 });
+
+  useEffect(() => {
+    if (inView) {
+      dispatch(setActiveSection(SECTION_ID.CONTACT));
+    }
+  }, [inView, dispatch]);
 
   return (
     <>
@@ -27,7 +40,8 @@ const Contact = React.memo(({ className }: ClassNameProps) => {
           "overflow-hidden flex flex-col justify-center p-4 py-12",
           className
         )}
-        id={CONTACT_ID}
+        id={SECTION_ID.CONTACT}
+        ref={ref}
       >
         <div className="pb-8">
           <div className="relative mb-5 pb-5">

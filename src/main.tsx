@@ -5,12 +5,16 @@ import "./index.css";
 import App from "./App.tsx";
 import lottie from "lottie-web";
 import { defineElement } from "@lordicon/element";
+import { Provider } from "react-redux";
+import { store } from "./lib/store";
 
 // define "lord-icon" custom element with default properties
 defineElement(lottie.loadAnimation);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </StrictMode>
 );

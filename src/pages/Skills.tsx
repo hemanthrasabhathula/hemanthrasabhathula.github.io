@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProgressBar from "../components/ProgressBar";
-import { SKILLS, SKILLS_ID } from "../lib/constants";
+import { SECTION, SECTION_ID } from "../lib/constants";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
+import { useDispatch } from "react-redux";
+import { useInView } from "react-intersection-observer";
+import { setActiveSection } from "../lib/navSlice";
 
 const Skills = React.memo(({ className }: ClassNameProps) => {
-  const title = SKILLS;
+  const title = SECTION.SKILLS;
   const skillsDescription =
     "As an accomplished developer, I possess a profound expertise in a wide array of programming languages, including Java, Kotlin, Python and JavaScript. My proficiency extends to cutting-edge web development technologies, encompassing Angular, React, and HTML&CSS. Furthermore, I have a substantial background in database management and a comprehensive grasp of SQL.";
 
@@ -22,11 +25,21 @@ const Skills = React.memo(({ className }: ClassNameProps) => {
   const column1 = skills.slice(0, Math.ceil(skills.length / 2));
   const column2 = skills.slice(Math.ceil(skills.length / 2));
 
+  const dispatch = useDispatch();
+  const { ref, inView } = useInView({ threshold: 0.5 });
+
+  useEffect(() => {
+    if (inView) {
+      dispatch(setActiveSection(SECTION_ID.SKILLS));
+    }
+  }, [inView, dispatch]);
+
   return (
     <>
       <section
         className={cn("flex flex-col justify-center p-4 py-12", className)}
-        id={SKILLS_ID}
+        id={SECTION_ID.SKILLS}
+        ref={ref}
       >
         <div className="pb-8">
           <div className="relative mb-5 pb-5">

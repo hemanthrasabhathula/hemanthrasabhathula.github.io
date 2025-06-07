@@ -1,7 +1,7 @@
 {
   "name": "hemanthrasabhathula.github.io",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,6 +14,7 @@
     "@fontsource/poppins": "^5.2.5",
     "@fontsource/raleway": "^5.2.5",
     "@lordicon/element": "^1.10.1",
+    "@reduxjs/toolkit": "^2.8.2",
     "aos": "^3.0.0-beta.6",
     "clsx": "^2.1.1",
     "framer-motion": "^12.7.4",
@@ -23,6 +24,7 @@
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.5.1",
     "tailwind-merge": "^3.2.0",
     "typed.js": "^2.1.0"

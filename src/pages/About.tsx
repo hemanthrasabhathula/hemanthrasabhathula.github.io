@@ -2,28 +2,40 @@ import { ChevronRight } from "lucide-react";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import profileImg from "../assets/profile-image-about.jpg";
-import { ABOUT, ABOUT_ID, EMAIL, WEBSITE } from "../lib/constants";
-import React from "react";
+import { SECTION, SECTION_ID, SOCIAL, PROFILE } from "../lib/constants";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useInView } from "react-intersection-observer";
+import { setActiveSection } from "../lib/navSlice";
 
 const About = React.memo(({ className }: ClassNameProps) => {
-  const title = ABOUT;
+  const title = SECTION.ABOUT;
   const role = "Software Developer";
   const description =
     "I am a highly motivated and detail-oriented individual with a passion for technology. I have a strong background in computer science and have been working as a developer since 2018. In my free time, I enjoy reading about cutting-edge technologies, experimenting with new programming languages and building personal projects.";
 
+  const dispatch = useDispatch();
+  const { ref, inView } = useInView({ threshold: 0.5 });
+
+  useEffect(() => {
+    if (inView) {
+      dispatch(setActiveSection(SECTION_ID.ABOUT));
+    }
+  }, [inView, dispatch]);
+
   const personalInfo = [
     {
       label: "Website",
-      value: WEBSITE,
-      link: WEBSITE ? `https://${WEBSITE}` : "#",
+      value: PROFILE.WEBSITE,
+      link: PROFILE.WEBSITE ? `https://${PROFILE.WEBSITE}` : "#",
     },
     { label: "Education", value: "MSc in Computer Science" },
-    { label: "City", value: "Lee's Summit, MO" },
-    { label: "Email", value: EMAIL },
+    { label: "City", value: PROFILE.LOCATION },
+    { label: "Email", value: PROFILE.EMAIL },
     {
       label: "Linkedin",
       value: "in/hemanth-rasabhathula",
-      link: "https://www.linkedin.com/in/hemanth-rasabhathula",
+      link: SOCIAL.LINKEDIN,
     },
   ];
 
@@ -37,7 +49,8 @@ const About = React.memo(({ className }: ClassNameProps) => {
           "overflow-hidden flex flex-col justify-center p-4 py-12 w-full",
           className
         )}
-        id={ABOUT_ID}
+        id={SECTION_ID.ABOUT}
+        ref={ref}
       >
         <div className="pb-8">
           <div className="relative mb-5 pb-5">

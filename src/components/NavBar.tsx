@@ -3,20 +3,11 @@ import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import { LuGithub, LuInstagram, LuLinkedin } from "react-icons/lu";
 import { FaChartSimple, FaXTwitter } from "react-icons/fa6";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import profileImg from "../assets/profile-image-cropped.jpg";
-import {
-  ABOUT,
-  CONTACT,
-  GITHUB_URL,
-  HOME,
-  HOME_ID,
-  INSTAGRAM_URL,
-  LINKEDIN_URL,
-  RESUME,
-  SKILLS,
-  TWITTER_URL,
-} from "../lib/constants";
+import { SECTION, SECTION_ID, SOCIAL } from "../lib/constants";
+import { useSelector } from "react-redux";
+import { RootState } from "../lib/store";
 
 interface NavBarProps extends ClassNameProps {
   toggleNavBar: () => void;
@@ -25,58 +16,57 @@ interface NavBarProps extends ClassNameProps {
 const NavBar = React.memo(({ className, toggleNavBar }: NavBarProps) => {
   const name = "Hemanth Rasabhathula";
   const socialIcons = [
-    { icon: <LuGithub />, link: GITHUB_URL },
+    { icon: <LuGithub />, link: SOCIAL.GITHUB },
     {
       icon: <LuLinkedin />,
-      link: LINKEDIN_URL,
+      link: SOCIAL.LINKEDIN,
     },
     {
       icon: <LuInstagram />,
-      link: INSTAGRAM_URL,
+      link: SOCIAL.INSTAGRAM,
     },
-    { icon: <FaXTwitter />, link: TWITTER_URL },
+    { icon: <FaXTwitter />, link: SOCIAL.TWITTER },
   ];
 
   const navItems = [
-    { name: HOME, icon: <Home className="size-5" /> },
-    { name: ABOUT, icon: <UserRound className="size-5" /> },
-    { name: SKILLS, icon: <FaChartSimple className="size-5" /> },
-    { name: RESUME, icon: <File className="size-5" /> },
-    { name: CONTACT, icon: <Mail className="size-5" /> },
+    {
+      name: SECTION.HOME,
+      id: SECTION_ID.HOME,
+      icon: <Home className="size-5" />,
+    },
+    {
+      name: SECTION.ABOUT,
+      id: SECTION_ID.ABOUT,
+      icon: <UserRound className="size-5" />,
+    },
+    {
+      name: SECTION.SKILLS,
+      id: SECTION_ID.SKILLS,
+      icon: <FaChartSimple className="size-5" />,
+    },
+    {
+      name: SECTION.RESUME,
+      id: SECTION_ID.RESUME,
+      icon: <File className="size-5" />,
+    },
+    {
+      name: SECTION.CONTACT,
+      id: SECTION_ID.CONTACT,
+      icon: <Mail className="size-5" />,
+    },
   ];
 
-  const [activeSection, setActiveSection] = useState<string>(HOME_ID);
+  //const [activeSection, setActiveSection] = useState<string>(HOME_ID);
 
+  const activeSection = useSelector(
+    (state: RootState) => state.nav.activeSection
+  );
+
+  console.log("Active Section from Redux:", activeSection);
   const isActive = (section: string) => {
+    console.log("Active Section:", activeSection, "Current Section:", section);
     return activeSection === section ? "text-cyan-500" : "text-white";
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("section");
-      let currentSection = "home";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop - sectionHeight / 3) {
-          currentSection = section.getAttribute("id") || HOME_ID;
-        }
-      });
-
-      // Update state only if the section has changed
-      setActiveSection((prevSection) => {
-        if (prevSection !== currentSection) {
-          return currentSection;
-        }
-        return prevSection;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on component unmount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <>
@@ -115,15 +105,15 @@ const NavBar = React.memo(({ className, toggleNavBar }: NavBarProps) => {
         </div>
 
         {/* NAV ITEMS */}
-        <nav className="flex flex-col space-y-10 md:space-y-6  items-start p-4">
+        <nav className="flex flex-col space-y-10 md:space-y-6 items-start p-4">
           {navItems.map((item, index) => (
             <a
               key={index}
-              href={`#${item.name.toLowerCase()}`}
+              href={`#${item.id}`}
               onClick={toggleNavBar}
               className={cn(
                 "text-white text-lg hover:text-cyan-500 flex gap-2 justify-center items-center transition-colors duration-100 ease-in-out",
-                isActive(item.name.toLowerCase())
+                isActive(item.id)
               )}
             >
               {item.icon}

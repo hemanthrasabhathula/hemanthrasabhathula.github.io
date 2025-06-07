@@ -1,18 +1,32 @@
-import { EMAIL, LOCATION, RESUME_ID } from "../lib/constants";
+import { useDispatch } from "react-redux";
+import { SECTION, SECTION_ID, PROFILE } from "../lib/constants";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
-import React from "react";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { setActiveSection } from "../lib/navSlice";
 
 const Resume = React.memo(({ className }: ClassNameProps) => {
-  const title = "Resume";
+  const title = SECTION.RESUME;
   const resumeDescription =
     "As a highly skilled and experienced software engineer with over 6 years of experience in the field, I am well-versed in a variety of development methodologies, I am always looking for new opportunities to learn and grow. With my ability to think strategically and communicate effectively, I am confident in my ability to make a valuable contribution to any organization.";
+
+  const dispatch = useDispatch();
+  const { ref, inView } = useInView({ threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView) {
+      console.log("Resume section is in view");
+      dispatch(setActiveSection(SECTION_ID.RESUME));
+    }
+  }, [inView, dispatch]);
 
   return (
     <>
       <section
         className={cn("flex flex-col justify-center p-4 py-12", className)}
-        id={RESUME_ID}
+        id={SECTION_ID.RESUME}
+        ref={ref}
       >
         {/* RESUME HEADLINE */}
         <div className="relative mb-5 pb-5">
@@ -58,7 +72,7 @@ const SummarySection = () => {
   const name = "Hemanth Rasabhathula";
   const summaryDescription =
     "Deadline-driven and innovative software developer with experience in designing and developing user-centered software solutions from initial concept to the polished end product.";
-  const summaryItems = [LOCATION, EMAIL];
+  const summaryItems = [PROFILE.LOCATION, PROFILE.EMAIL];
 
   return (
     <>
