@@ -31,7 +31,7 @@ const Name = React.memo(({ className }: ClassNameProps) => {
         <span>{name.firstName}</span>
         <span>{name.lastName}</span>
         <p className="text-2xl mt-3 font-medium font-[poppins]">
-          <span className="waving-hand">👋</span> I'am a
+          <span className="waving-hand">👋</span> I'm a
           <ChevronLeft className="inline-block" />
           <TypedComponent strings={typedStrings} />
           <ChevronRight className="inline-block" />
