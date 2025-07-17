@@ -7,6 +7,7 @@ import { SECTION_ID } from "../lib/constants";
 import { useDispatch } from "react-redux";
 import { useInView } from "react-intersection-observer";
 import { setActiveSection } from "../lib/navSlice";
+import { HamburgerButton } from "../components/hamburgerButton";
 
 interface HomeContainerProps extends ClassNameProps {
   toggleNavBar: () => void;
@@ -52,7 +53,7 @@ const HomeContainer = React.memo(
           ref={ref}
         >
           {/* Toggle Button */}
-          <div
+          {/* <div
             className={cn(
               "fixed top-4 right-4 md:hidden z-50 bg-highlight-blue rounded-full p-2 cursor-pointer transition-all duration-500 ease-in-out opacity-90",
               isNavBarOpen ? "rotate-180 scale-110" : "rotate-0 scale-100"
@@ -64,6 +65,14 @@ const HomeContainer = React.memo(
             ) : (
               <Menu className="text-white size-6" />
             )}
+          </div> */}
+          {/* Hamburger Button */}
+          <div className="fixed top-4 right-4 md:hidden z-50 bg-highlight-blue rounded-full p-2 cursor-pointer transition-all duration-500 ease-in-out opacity-90">
+            <HamburgerButton
+              open={isNavBarOpen}
+              onClick={toggleNavBar}
+              className="w-6 h-6"
+            />
           </div>
           <Name className="absolute bottom-50 left-10 md:bottom-40 md:left-30" />
 
