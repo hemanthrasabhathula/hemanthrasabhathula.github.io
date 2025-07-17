@@ -1,4 +1,4 @@
-import { ArrowUp, Menu, X } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import Name from "../components/Name";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
