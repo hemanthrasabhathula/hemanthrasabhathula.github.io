@@ -67,13 +67,15 @@ const HomeContainer = React.memo(
             )}
           </div> */}
           {/* Hamburger Button */}
-          <div className="fixed top-4 right-4 md:hidden z-50 bg-highlight-blue rounded-full p-2 cursor-pointer transition-all duration-500 ease-in-out opacity-90">
+          <div className="fixed top-4 right-4 md:hidden z-50 bg-highlight-blue rounded-full p-1 cursor-pointer transition-all duration-500 ease-in-out opacity-90">
             <HamburgerButton
               open={isNavBarOpen}
               onClick={toggleNavBar}
-              className="w-6 h-6"
+              className="w-6 h-6 p-4"
             />
           </div>
+
+          {/* Name Component */}
           <Name className="absolute bottom-50 left-10 md:bottom-40 md:left-30" />
 
           {/* Scroll-based Icon */}
@@ -86,7 +88,7 @@ const HomeContainer = React.memo(
             )}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <ArrowUp className="text-white size-6" />
+            <ArrowUp className="text-white size-6 transition-transform duration-150 active:scale-70" />
           </div>
         </section>
       </>

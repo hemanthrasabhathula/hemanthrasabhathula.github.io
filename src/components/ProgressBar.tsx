@@ -29,9 +29,9 @@ const ProgressBar = React.memo(({ skill, progress }: ProgressBarProps) => {
           {progress}%
         </span>
       </div>
-      <div className="bg-progress-background h-3 overflow-hidden">
+      <div className="bg-progress-background h-3 overflow-hidden rounded-sm">
         <div
-          className="h-3 transition-all duration-1000 ease-in-out bg-progress-foreground "
+          className="h-3 transition-all duration-1000 ease-in-out bg-progress-foreground rounded-sm"
           style={{ width: `${currentWidth}%` }}
         ></div>
       </div>
