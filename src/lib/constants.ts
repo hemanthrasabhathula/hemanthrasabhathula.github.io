@@ -26,3 +26,7 @@ export const PROFILE = {
   WEBSITE: "www.hemanthrasabhathula.co.in",
   LOCATION: "Lee's Summit, MO",
 };
+
+export const GITHUB_GIST_BASE_URL = "https://api.github.com/gists/";
+export const GIST_ID = "247a9d64bc13aceb4f5c5f5d02470f54";
+export const FILE_NAME = "portfolio-config.json";

@@ -1,17 +1,26 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import HomeContainer from "./pages/HomeContainer";
 import Resume from "./pages/Resume";
 import Skills from "./pages/Skills";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "./lib/store";
+import { fetchPortfolioConfig } from "./lib/portfolioSlice";
 
 export interface NavBarProps {
   isOpen: boolean;
 }
 
 function App() {
+  const dispatch = useDispatch<AppDispatch>();
   const [isNavBarOpen, setIsNavBarOpen] = useState(false);
+
+  // Fetch portfolio config on app load
+  useEffect(() => {
+    dispatch(fetchPortfolioConfig());
+  }, [dispatch]);
 
   const toggleNavBar = useCallback(() => {
     setIsNavBarOpen((prev) => !prev);

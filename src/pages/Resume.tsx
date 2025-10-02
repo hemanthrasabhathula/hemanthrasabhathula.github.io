@@ -1,10 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SECTION, SECTION_ID, PROFILE } from "../lib/constants";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { setActiveSection } from "../lib/navSlice";
+import { RootState } from "../lib/store";
 
 const Resume = React.memo(({ className }: ClassNameProps) => {
   const title = SECTION.RESUME;
@@ -103,12 +104,28 @@ const SummarySection = () => {
 };
 
 const EducationSection = ({ className }: ClassNameProps) => {
-  const title = "Education";
-  const degree = "MSc in Computer Science";
-  const duration = "2024 - 2025";
-  const university = "UCM - Missouri, US";
-  const description =
-    "I am currently pursuing my Master of Science degree in Computer Science at the University of Central Missouri, where I focus on the fields of Artificial Intelligence and Machine Learning.";
+  const educationConfig = useSelector(
+    (state: RootState) => state.portfolio.config?.sections.education
+  );
+
+  if (!educationConfig?.enabled) {
+    return null; // Do not render the section if it's disabled
+  }
+
+  const data = educationConfig?.data || {};
+  const title = data.title || "Education";
+  const degree = data.degree || "";
+  const duration = data.duration || "";
+  const university = data.university || "";
+  const description = data.description || "";
+
+  console.log("Final values:", {
+    title,
+    degree,
+    duration,
+    university,
+    description,
+  });
 
   return (
     <>
