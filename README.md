@@ -36,6 +36,109 @@ This is a personal portfolio website built using modern web technologies. It sho
 
 ---
 
+## 🌐 Dynamic Content Management
+
+This portfolio implements a dynamic content management system using **GitHub Gists** for real-time content updates without requiring code redeployment.
+
+### 📋 Content Configuration
+
+The portfolio content is managed through a centralized JSON configuration stored in a GitHub Gist:
+
+- **Gist URL**: [https://gist.github.com/hemanthrasabhathula](https://gist.github.com/hemanthrasabhathula)
+- **Configuration File**: `portfolio-config.json`
+
+### 🔄 How It Works
+
+1. **Centralized Configuration**: All portfolio sections (About, Experience, Education, Projects, Skills, Contact) are defined in a single JSON file.
+2. **Real-time Updates**: Content changes in the gist are automatically reflected in the portfolio within 1-3 minutes.
+3. **Section Control**: Each section can be individually enabled/disabled through the configuration.
+4. **Type Safety**: Full TypeScript support for all content structures.
+
+### 📁 Content Structure
+
+```json
+{
+  "sections": {
+    "home": {
+      "enabled": true,
+      "data": {
+        "name": "Hemanth Rasabhathula",
+        "role": "Full-Stack Developer",
+        "tagline": "Building amazing web experiences"
+      }
+    },
+    "about": {
+      "enabled": true,
+      "data": {
+        "description": "...",
+        "personalInfo": [...]
+      }
+    },
+    "experience": {
+      "enabled": true,
+      "data": [
+        {
+          "title": "Senior Software Developer",
+          "companyName": "Optum",
+          "duration": "Aug 2022 - Present",
+          "responsibilities": [...]
+        }
+      ]
+    },
+    "education": {
+      "enabled": true,
+      "data": {
+        "degree": "MSc in Computer Science",
+        "university": "UCM - Missouri, US",
+        "duration": "2024 - 2025"
+      }
+    },
+    "projects": {
+      "enabled": true,
+      "data": [...]
+    },
+    "skills": {
+      "enabled": true,
+      "data": {
+        "frontend": [...],
+        "backend": [...],
+        "tools": [...]
+      }
+    },
+    "contact": {
+      "enabled": true,
+      "data": {
+        "email": "...",
+        "social": {...}
+      }
+    }
+  },
+  "metadata": {
+    "lastUpdated": "2025-01-01",
+    "version": "1.0.0"
+  }
+}
+```
+
+### 🛠️ Technical Implementation
+
+- **State Management**: Redux Toolkit with async thunks for API calls
+- **API Integration**: GitHub API for fetching gist content
+- **Error Handling**: Comprehensive error handling with fallback content
+- **Loading States**: Smooth loading indicators during content fetch
+- **Caching**: Smart caching to minimize API calls while ensuring fresh content
+
+### 📈 Benefits
+
+- ✅ **No Code Deployment**: Update portfolio content without touching code
+- ✅ **Version Control**: Track content changes through gist history
+- ✅ **Real-time Updates**: Changes reflect quickly without site rebuild
+- ✅ **Section Management**: Enable/disable sections dynamically
+- ✅ **Type Safety**: Full TypeScript support for content validation
+- ✅ **Offline Support**: Fallback content when API is unavailable
+
+---
+
 ## 📂 Project Structure
 
 ```
