@@ -12,7 +12,7 @@ const About = React.memo(({ className }: ClassNameProps) => {
   const title = SECTION.ABOUT;
   const role = "Software Developer";
   const description =
-    "I am a highly motivated and detail-oriented individual with a passion for technology. I have a strong background in computer science and have been working as a developer since 2018. In my free time, I enjoy reading about cutting-edge technologies, experimenting with new programming languages and building personal projects.";
+    "I am a highly motivated and detail-oriented individual with a passion for technology. I have a strong background in computer science and have been working as a software developer. In my free time, I enjoy reading about cutting-edge technologies, experimenting with new programming languages and building personal projects.";
 
   const dispatch = useDispatch();
   const { ref, inView } = useInView({ threshold: 0.5 });
