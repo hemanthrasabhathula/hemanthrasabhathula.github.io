@@ -78,9 +78,9 @@ The portfolio content is managed through a centralized JSON configuration stored
       "enabled": true,
       "data": [
         {
-          "title": "Senior Software Developer",
-          "companyName": "Optum",
-          "duration": "Aug 2022 - Present",
+          "title": "Software Developer",
+          "companyName": "Company",
+          "duration": "",
           "responsibilities": [...]
         }
       ]
@@ -88,9 +88,9 @@ The portfolio content is managed through a centralized JSON configuration stored
     "education": {
       "enabled": true,
       "data": {
-        "degree": "MSc in Computer Science",
-        "university": "UCM - Missouri, US",
-        "duration": "2024 - 2025"
+        "degree": "",
+        "university":"",
+        "duration": ""
       }
     },
     "projects": {
@@ -136,57 +136,6 @@ The portfolio content is managed through a centralized JSON configuration stored
 - ✅ **Section Management**: Enable/disable sections dynamically
 - ✅ **Type Safety**: Full TypeScript support for content validation
 - ✅ **Offline Support**: Fallback content when API is unavailable
-
----
-
-## 📂 Project Structure
-
-```
-.gitignore
-eslint.config.js
-index.html
-package.json
-README.md
-tsconfig.app.json
-tsconfig.json
-tsconfig.node.json
-vite.config.ts
-.github/
-  workflows/
-    deploy.yml
-public/
-  apple-touch-icon.png
-  favicon-96x96.png
-  favicon.ico
-  favicon.svg
-  opengraph-image.png
-  site.webmanifest
-  web-app-manifest-192x192.png
-  web-app-manifest-512x512.png
-src/
-  App.css
-  App.tsx
-  declaration.d.ts
-  index.css
-  main.tsx
-  vite-env.d.ts
-  assets/
-    background-img.jpg
-  components/
-    Name.tsx
-    ProgressBar.tsx
-    TypedComponent.tsx
-    NavBar.tsx
-  lib/
-    utils.ts
-    ClassNameProps.ts
-  pages/
-    About.tsx
-    Contact.tsx
-    HomeContainer.tsx
-    Resume.tsx
-    Skills.tsx
-```
 
 ---
 
