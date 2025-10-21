@@ -1,12 +1,12 @@
 import { Mail, MapPin } from "lucide-react";
-import { ClassNameProps } from "../lib/types";
-import { cn } from "../lib/utils";
+import { ClassNameProps } from "../../lib/types";
+import { cn } from "../../lib/utils";
 import React, { useEffect } from "react";
-import { SECTION, PROFILE } from "../lib/constants/constants";
+import { SECTION, PROFILE } from "../../lib/constants/constants";
 import { useDispatch } from "react-redux";
 import { useInView } from "react-intersection-observer";
-import { setActiveSection } from "../store/slices/navSlice";
-import { SECTION_ID } from "../lib/constants/constants";
+import { setActiveSection } from "../../store/slices/navSlice";
+import { SECTION_ID } from "../../lib/constants/constants";
 
 const Contact = React.memo(({ className }: ClassNameProps) => {
   const title = SECTION.CONTACT;

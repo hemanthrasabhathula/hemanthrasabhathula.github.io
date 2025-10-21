@@ -1,14 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
-import NavBar from "./components/NavBar";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import HomeContainer from "./pages/HomeContainer";
-import Resume from "./pages/Resume";
-import Skills from "./pages/Skills";
+
+import About from "./components/sections/About";
+import Contact from "./components/sections/Contact";
+import HomeContainer from "./components/sections/Home";
+import Resume from "./components/sections/Resume";
+import Skills from "./components/sections/Skills";
 import { useDispatch } from "react-redux";
 
 import { fetchPortfolioConfig } from "./store/slices/portfolioSlice";
 import { AppDispatch } from "./store/store";
+import NavBar from "./components/layout/NavBar";
 
 export interface NavBarProps {
   isOpen: boolean;

@@ -1,18 +1,20 @@
 import { File, Home, Mail, UserRound } from "lucide-react";
-import { ClassNameProps } from "../lib/types";
-import { cn } from "../lib/utils";
+
 import { LuGithub, LuInstagram, LuLinkedin } from "react-icons/lu";
 import { FaChartSimple, FaXTwitter } from "react-icons/fa6";
 import React from "react";
-import profileImg from "../assets/profile-image-cropped.jpg";
+import profileImg from "../../assets/profile-image-cropped.jpg";
+
+import { useSelector } from "react-redux";
+import { ClassNameProps } from "../../lib/types";
 import {
   PROFILE,
   SECTION,
   SECTION_ID,
   SOCIAL,
-} from "../lib/constants/constants";
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
+} from "../../lib/constants/constants";
+import { RootState } from "../../store/store";
+import { cn } from "../../lib/utils";
 
 interface NavBarProps extends ClassNameProps {
   toggleNavBar: () => void;

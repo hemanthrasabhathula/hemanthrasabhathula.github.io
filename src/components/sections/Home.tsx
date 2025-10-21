@@ -1,13 +1,13 @@
 import { ArrowUp } from "lucide-react";
-import Name from "../components/Name";
-import { ClassNameProps } from "../lib/types";
-import { cn } from "../lib/utils";
+import Name from "../ui/Name";
+import { ClassNameProps } from "../../lib/types";
+import { cn } from "../../lib/utils";
 import React, { useEffect, useState } from "react";
-import { SECTION_ID } from "../lib/constants/constants";
+import { SECTION_ID } from "../../lib/constants/constants";
 import { useDispatch } from "react-redux";
 import { useInView } from "react-intersection-observer";
-import { setActiveSection } from "../store/slices/navSlice";
-import { HamburgerButton } from "../components/hamburgerButton";
+import { setActiveSection } from "../../store/slices/navSlice";
+import { HamburgerButton } from "../ui/HamburgerButton";
 
 interface HomeContainerProps extends ClassNameProps {
   toggleNavBar: () => void;

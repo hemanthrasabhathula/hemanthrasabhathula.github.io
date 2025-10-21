@@ -1,17 +1,17 @@
 import { useDispatch } from "react-redux";
-import { SECTION_ID } from "../lib/constants/constants";
-import { ClassNameProps } from "../lib/types";
-import { cn } from "../lib/utils";
+import { SECTION_ID } from "../../lib/constants/constants";
+import { ClassNameProps } from "../../lib/types";
+import { cn } from "../../lib/utils";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { setActiveSection } from "../store/slices/navSlice";
+import { setActiveSection } from "../../store/slices/navSlice";
 import {
   useResumeData,
   useSummaryData,
   useEducationData,
   useProjectsData,
   useExperienceData,
-} from "../lib/hooks/useResumeData";
+} from "../../lib/hooks/useResumeData";
 
 const Resume = React.memo(({ className }: ClassNameProps) => {
   const { title, description } = useResumeData();
