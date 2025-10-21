@@ -1,5 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { SECTION, SECTION_ID, PROFILE } from "../lib/constants";
+import {
+  SECTION,
+  SECTION_ID,
+  PROFILE,
+  RESUME_SECTION_TITLES,
+  UNIVERSITY,
+} from "../lib/constants";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React, { useEffect } from "react";
@@ -8,16 +14,27 @@ import { setActiveSection } from "../lib/navSlice";
 import { RootState } from "../lib/store";
 
 const Resume = React.memo(({ className }: ClassNameProps) => {
-  const title = SECTION.RESUME;
-  const resumeDescription =
-    "As a highly skilled and experienced software engineer with over 6 years of experience in the field, I am well-versed in a variety of development methodologies, I am always looking for new opportunities to learn and grow. With my ability to think strategically and communicate effectively, I am confident in my ability to make a valuable contribution to any organization.";
+  const resumeConfig = useSelector(
+    (state: RootState) => state.portfolio.config?.sections.resume
+  );
+
+  // Fallback resume data in case the dynamic data is not available
+  const fallbackResume = {
+    title: SECTION.RESUME,
+    description:
+      "As a highly skilled and experienced software engineer, I am well-versed in a variety of development methodologies and always seeking new opportunities to learn and grow. With my ability to think strategically and communicate effectively, I am confident in my capacity to make a valuable contribution to any organization.",
+  };
+
+  const data = resumeConfig?.data || fallbackResume;
+  const title = data.title || SECTION.RESUME;
+  const resumeDescription = data.description || "";
 
   const dispatch = useDispatch();
   const { ref, inView } = useInView({ threshold: 0.2 });
 
   useEffect(() => {
     if (inView) {
-      console.log("Resume section is in view");
+      // console.log("Resume section is in view");
       dispatch(setActiveSection(SECTION_ID.RESUME));
     }
   }, [inView, dispatch]);
@@ -69,11 +86,29 @@ const Resume = React.memo(({ className }: ClassNameProps) => {
 export default Resume;
 
 const SummarySection = () => {
-  const title = "Summary";
-  const name = "Hemanth Rasabhathula";
-  const summaryDescription =
-    "Deadline-driven and innovative software developer with experience in designing and developing user-centered software solutions from initial concept to the polished end product.";
-  const summaryItems = [PROFILE.LOCATION, PROFILE.EMAIL];
+  const summaryConfig = useSelector(
+    (state: RootState) => state.portfolio.config?.sections.summary
+  );
+
+  // Only return null if the section is explicitly disabled (enabled: false)
+  // If summaryConfig is undefined, we should show fallback data
+  if (summaryConfig && !summaryConfig.enabled) {
+    return null; // Do not render the section if it's explicitly disabled
+  }
+  // Fallback summary data in case the dynamic data is not available
+  const fallbackSummary = {
+    title: RESUME_SECTION_TITLES.SUMMARY,
+    name: PROFILE.NAME,
+    description:
+      "Deadline-driven and innovative software developer with experience in designing and developing user-centered software solutions from initial concept to the polished end product.",
+    items: [PROFILE.LOCATION, PROFILE.EMAIL],
+  };
+
+  const data = summaryConfig?.data || fallbackSummary;
+  const title = data.title || RESUME_SECTION_TITLES.SUMMARY;
+  const name = data.name || PROFILE.NAME;
+  const summaryDescription = data.description || "";
+  const summaryItems = data.items || [PROFILE.LOCATION, PROFILE.EMAIL];
 
   return (
     <>
@@ -108,24 +143,28 @@ const EducationSection = ({ className }: ClassNameProps) => {
     (state: RootState) => state.portfolio.config?.sections.education
   );
 
-  if (!educationConfig?.enabled) {
-    return null; // Do not render the section if it's disabled
+  // Only return null if the section is explicitly disabled (enabled: false)
+  // If educationConfig is undefined, we should show fallback data
+  if (educationConfig && !educationConfig.enabled) {
+    return null; // Do not render the section if it's explicitly disabled
   }
 
-  const data = educationConfig?.data || {};
-  const title = data.title || "Education";
+  // Fallback education data in case the dynamic data is not available
+  const fallbackEducation = {
+    title: RESUME_SECTION_TITLES.EDUCATION,
+    degree: "MSc in Computer Science",
+    duration: "2024 - 2025",
+    university: `${UNIVERSITY.SHORT_NAME} - ${UNIVERSITY.LOCATION}`,
+    description:
+      "I am currently pursuing my Master of Science degree in Computer Science at the University of Central Missouri, where I focus on the fields of Artificial Intelligence and Machine Learning.",
+  };
+
+  const data = educationConfig?.data || fallbackEducation;
+  const title = data.title || RESUME_SECTION_TITLES.EDUCATION;
   const degree = data.degree || "";
   const duration = data.duration || "";
   const university = data.university || "";
   const description = data.description || "";
-
-  console.log("Final values:", {
-    title,
-    degree,
-    duration,
-    university,
-    description,
-  });
 
   return (
     <>
@@ -158,46 +197,61 @@ const EducationSection = ({ className }: ClassNameProps) => {
 };
 
 const ProjectsSection = ({ className }: ClassNameProps) => {
-  const title = "Projects";
+  const projectsConfig = useSelector(
+    (state: RootState) => state.portfolio.config?.sections.projects
+  );
 
-  const projects = [
-    {
-      name: "AI Resume Builder",
-      tools: "Next.js, TypeScript, Prisma, PostgreSQL, Open AI, Stripe",
-      description:
-        "A web application that generates resumes using OpenAI API, allowing users to create and download resumes in PDF format. Integrated Stripe for payment processing.",
+  // Only return null if the section is explicitly disabled (enabled: false)
+  // If projectsConfig is undefined, we should show fallback data
+  if (projectsConfig && !projectsConfig.enabled) {
+    return null; // Do not render the section if it's explicitly disabled
+  }
 
-      link: "https://ai-resume-builder-dev.vercel.app",
-    },
-    {
-      name: "Best Lines of Books Web App",
-      tools: "TypeScript, React, Python, Flask, Bootstrap, MongoDB",
-      description:
-        "A book collection platform, showcasing the best lines of books with a beautiful backgrounds, and integrated an AI API for effortless book additions.",
-      link: "https://best-lines-of-books.web.app",
-    },
-    {
-      name: "Machine Learning Project",
-      tools: "Python, TensorFlow, Pandas, Scikit",
-      description:
-        "Executed machine learning projects in Classification, Regression, and Neural Networks on extensive open-source datasets, achieving up to 85% accuracy on classification tasks using TensorFlow and Scikit-learn.",
-      link: "https://github.com/hemanthrasabhathula/Machine-Learning",
-    },
-    {
-      name: "Housie Picker App",
-      tools: "Java, XML, MaterialDesign",
-      description:
-        "Published a responsive application with material design, optimized for mobile and tablet screens, achieving over 100,000+ downloads on Google Play Store.",
-      link: "https://play.google.com/store/apps/details?id=com.numbergenerate.housieapp",
-    },
-    {
-      name: "WhatsOnOtt App",
-      tools: "Kotlin, XML, MVVM, GitHub Gist API",
-      description:
-        "Designed and developed an MVVM-based mobile application in Kotlin for tracking the latest trending entertainment on 6 OTT platforms.",
-      link: "https://play.google.com/store/apps/details?id=com.rasabhathula.android.whatsonott",
-    },
-  ];
+  // Fallback projects section data in case the dynamic data is not available
+  const fallbackProjectsSection = {
+    title: RESUME_SECTION_TITLES.PROJECTS,
+    projects: [
+      {
+        name: "AI Resume Builder",
+        tools: "Next.js, TypeScript, Prisma, PostgreSQL, Open AI, Stripe",
+        description:
+          "A web application that generates resumes using OpenAI API, allowing users to create and download resumes in PDF format. Integrated Stripe for payment processing.",
+        link: "https://ai-resume-builder-dev.vercel.app",
+      },
+      {
+        name: "Best Lines of Books Web App",
+        tools: "TypeScript, React, Python, Flask, Bootstrap, MongoDB",
+        description:
+          "A book collection platform, showcasing the best lines of books with a beautiful backgrounds, and integrated an AI API for effortless book additions.",
+        link: "https://best-lines-of-books.web.app",
+      },
+      {
+        name: "Machine Learning Project",
+        tools: "Python, TensorFlow, Pandas, Scikit",
+        description:
+          "Executed machine learning projects in Classification, Regression, and Neural Networks on extensive open-source datasets, achieving up to 85% accuracy on classification tasks using TensorFlow and Scikit-learn.",
+        link: "https://github.com/hemanthrasabhathula/Machine-Learning",
+      },
+      {
+        name: "Housie Picker App",
+        tools: "Java, XML, MaterialDesign",
+        description:
+          "Published a responsive application with material design, optimized for mobile and tablet screens, achieving over 100,000+ downloads on Google Play Store.",
+        link: "https://play.google.com/store/apps/details?id=com.numbergenerate.housieapp",
+      },
+      {
+        name: "WhatsOnOtt App",
+        tools: "Kotlin, XML, MVVM, GitHub Gist API",
+        description:
+          "Designed and developed an MVVM-based mobile application in Kotlin for tracking the latest trending entertainment on 6 OTT platforms.",
+        link: "https://play.google.com/store/apps/details?id=com.rasabhathula.android.whatsonott",
+      },
+    ],
+  };
+
+  const data = projectsConfig?.data || fallbackProjectsSection;
+  const title = data.title || RESUME_SECTION_TITLES.PROJECTS;
+  const projects = data.projects || [];
 
   return (
     <>
@@ -246,24 +300,73 @@ const ProjectsSection = ({ className }: ClassNameProps) => {
 };
 
 const ProfessionalExperienceSection = () => {
-  const title = "Professional Experience";
+  const experienceConfig = useSelector(
+    (state: RootState) => state.portfolio.config?.sections.experience
+  );
 
-  const jobs = [
-    {
-      title: "Senior Software Developer",
-      companyName: "Optum",
-      companyLink: "https://www.optum.com",
-      location: "Minnesota, US (Remote)",
-      duration: "2022 - Present",
-      responsibilities: [
-        "Architected and established a GraphQL API solution for the legacy application to enhance system performance and efficiency by 20%.",
-        "Leveraged Next.js Image Optimization, Lighthouse audits, and React Profiler to improve load time, Core Web Vitals, and overall frontend performance.",
-        "Spearheaded optimization efforts in REDIS cache management and PostgreSQL data management, resulting in a notable 30% reduction in API latency.",
-        "Pioneered the externalization of micro-apps APIs with KONG API Gateway, effectively integrating OAuth2Authorization; achieved secure access for over 50 endpoints, significantly improving system reliability and user trust.",
-        "Led initiatives to revamp the UI/UX of the About/Contact Us sections, resulting in 25% boost in user interaction, amplifying overall better user experience.",
-        "Implemented cross-domain cache management for URL redirection in the frontend, ensuring seamless webpage transitions for authenticated users.",
-      ],
-      icon: (
+  // Only return null if the section is explicitly disabled (enabled: false)
+  // If experienceConfig is undefined, we should show fallback data
+  if (experienceConfig && !experienceConfig.enabled) {
+    return null; // Do not render the section if it's explicitly disabled
+  }
+
+  // Fallback experience section data in case the dynamic data is not available
+  const fallbackExperienceSection = {
+    title: RESUME_SECTION_TITLES.PROFESSIONAL_EXPERIENCE,
+    experiences: [
+      {
+        title: "Senior Software Developer",
+        companyName: "Optum",
+        companyLink: "https://www.optum.com",
+        location: "Minnesota, US (Remote)",
+        duration: "2022 - Present",
+        responsibilities: [
+          "Architected and established a GraphQL API solution for the legacy application to enhance system performance and efficiency by 20%.",
+          "Leveraged Next.js Image Optimization, Lighthouse audits, and React Profiler to improve load time, Core Web Vitals, and overall frontend performance.",
+          "Spearheaded optimization efforts in REDIS cache management and PostgreSQL data management, resulting in a notable 30% reduction in API latency.",
+          "Pioneered the externalization of micro-apps APIs with KONG API Gateway, effectively integrating OAuth2Authorization; achieved secure access for over 50 endpoints, significantly improving system reliability and user trust.",
+          "Led initiatives to revamp the UI/UX of the About/Contact Us sections, resulting in 25% boost in user interaction, amplifying overall better user experience.",
+          "Implemented cross-domain cache management for URL redirection in the frontend, ensuring seamless webpage transitions for authenticated users.",
+        ],
+      },
+      {
+        title: "Full Stack Developer",
+        companyName: "Siemens",
+        companyLink: "https://www.siemens.com",
+        location: "Hyderabad, IN (Remote)",
+        duration: "2019 - 2022",
+        responsibilities: [
+          "Implemented virtualization (React Virtualized, React Window) to enhance the performance of large lists and tables.",
+          "Integrated Framer Motion for smooth animations and enhanced user interactions. Used React.memo, useMemo, and useCallback to optimize component performance and prevent unnecessary computations.",
+          "Implemented form validations using libraries like React Hook Form and Yup, enhancing user input integrity and error handling.",
+          "Utilized React-Router to convert applications into single-page applications (SPAs), enhancing user experience.",
+          "Integrated Firebase Auth and Firestore for real-time data sync in a serverless web app built with React and Node.js",
+        ],
+      },
+      {
+        title: "Software Engineer",
+        companyName: "Mindtree",
+        companyLink: "https://www.ltimindtree.com/",
+        location: "Bangalore, IN",
+        duration: "2016 - 2019",
+        responsibilities: [
+          "Integrated third-party libraries such as ngx-bootstrap, Angular Material, and PrimeNG to enrich UI components and speed up development.",
+          "Developed and implemented complex business logic utilizing Java 8 features, such as Streams and Lambda expressions, across multiple monitoring platforms.",
+          "Managed Red Hat Linux environments, applying Bash scripting to automate system processes and improve task efficiency, achieving a 60% increase in operational efficiency.",
+        ],
+      },
+    ],
+  };
+
+  const data = experienceConfig?.data || fallbackExperienceSection;
+  const title = data.title || RESUME_SECTION_TITLES.PROFESSIONAL_EXPERIENCE;
+  const experiences = data.experiences || [];
+
+  // Icon mapping based on job index
+  const getCompanyIcon = (index: number) => {
+    if (index === 0) {
+      // First job gets the special Optum icon
+      return (
         <lord-icon
           src="https://cdn.lordicon.com/szoiozyr.json"
           trigger="loop"
@@ -271,121 +374,19 @@ const ProfessionalExperienceSection = () => {
           delay="3000"
           colors="primary:#121331,secondary:#4bb3fd,tertiary:#f9c9c0,quaternary:#ad6836,quinary:#4faef9"
         />
-      ),
-    },
-    {
-      title: "Full Stack Developer",
-      companyName: "Siemens",
-      companyLink: "https://www.siemens.com",
-      location: "Hyderabad, IN (Remote)",
-      duration: "2019 - 2022",
-      responsibilities: [
-        "Implemented virtualization (React Virtualized, React Window) to enhance the performance of large lists and tables.",
-        "Integrated Framer Motion for smooth animations and enhanced user interactions. Used React.memo, useMemo, and useCallback to optimize component performance and prevent unnecessary computations.",
-        "Implemented form validations using libraries like React Hook Form and Yup, enhancing user input integrity and error handling.",
-        "Utilized React-Router to convert applications into single-page applications (SPAs), enhancing user experience.",
-        "Integrated Firebase Auth and Firestore for real-time data sync in a serverless web app built with React and Node.js",
-      ],
-      icon: (
+      );
+    } else {
+      // All other jobs get the default icon
+      return (
         <lord-icon
           src="https://cdn.lordicon.com/mebvgwrs.json"
           trigger="loop"
           delay="3000"
           stroke="bold"
         />
-      ),
-    },
-    {
-      title: "Software Engineer",
-      companyName: "Mindtree",
-      companyLink: "https://www.ltimindtree.com/",
-      location: "Bangalore, IN",
-      duration: "2016 - 2019",
-      responsibilities: [
-        "Integrated third-party libraries such as ngx-bootstrap, Angular Material, and PrimeNG to enrich UI components and speed up development.",
-        "Developed and implemented complex business logic utilizing Java 8 features, such as Streams and Lambda expressions, across multiple monitoring platforms.",
-        "Managed Red Hat Linux environments, applying Bash scripting to automate system processes and improve task efficiency, achieving a 60% increase in operational efficiency.",
-      ],
-      icon: (
-        <lord-icon
-          src="https://cdn.lordicon.com/mebvgwrs.json"
-          trigger="loop"
-          delay="3000"
-          stroke="bold"
-        />
-      ),
-    },
-  ];
-
-  // const jobs = [
-  //   {
-  //     title: "Full-Stack Engineer (Intern)",
-  //     companyName: "Blockhouse Labs",
-  //     companyLink: "https://blockhouse.app/",
-  //     location: "NYC, US",
-  //     duration: "Sep 2024 - Dec 2024",
-  //     responsibilities: [
-  //       "Built and maintained full-stack web applications using Next.js, Prisma, TypeScript, and Django, delivering over 25 key features while ensuring pixel-perfect translation of designs from Figma.",
-  //       "Refined application performance by implementing efficient API calls, caching strategies, and PostgreSQL query optimization, improving response time by 30%.",
-  //       "Established a Cypress end-to-end testing suite for core functionalities, achieving 95% test coverage and ensuring robust application quality and reliability. ",
-  //       "Set up an automated CI/CD pipeline with GitHub Actions to run Cypress tests on Pull Requests, reducing manual testing effort by 40%.",
-  //       "Participated in Agile methodologies, using PostHog for application monitoring and optimizations that enhanced user experience by 20%.",
-  //     ],
-  //     icon: (
-  //       <lord-icon
-  //         src="https://cdn.lordicon.com/mebvgwrs.json"
-  //         trigger="loop"
-  //         delay="3000"
-  //         stroke="bold"
-  //       />
-  //     ),
-  //   },
-  //   {
-  //     title: "Software Engineer",
-  //     companyName: "Optum",
-  //     companyLink: "https://www.optum.com",
-  //     location: "Hyderabad, IN",
-  //     duration: "2021 - 2023",
-  //     responsibilities: [
-  //       "Architected and established a GraphQL API solution for the legacy application to enhance system performance and efficiency by 20%.",
-  //       "Spearheaded optimization efforts in REDIS cache management and PostgreSQL data management, resulting in a notable 30% reduction in API latency.",
-  //       "Pioneered the externalization of micro-apps APIs with KONG API Gateway, effectively integrating OAuth2 Authorization; achieved secure access for over 50 endpoints.",
-  //       "Led initiatives to revamp the UI/UX of the About/Contact Us sections, resulting in 25% boost in user interaction.",
-  //       "Implemented cross-domain cache management for URL redirection in the frontend, ensuring seamless webpage transitions for authenticated users.",
-  //     ],
-  //     icon: (
-  //       <lord-icon
-  //         src="https://cdn.lordicon.com/szoiozyr.json"
-  //         trigger="loop"
-  //         stroke="bold"
-  //         delay="3000"
-  //         colors="primary:#121331,secondary:#4bb3fd,tertiary:#f9c9c0,quaternary:#ad6836,quinary:#4faef9"
-  //       />
-  //     ),
-  //   },
-  //   {
-  //     title: "Senior Software Developer",
-  //     companyName: "Mindtree Ltd",
-  //     companyLink: "https://www.ltimindtree.com/",
-  //     location: "Bangalore, IN",
-  //     duration: "2018 - 2021",
-  //     responsibilities: [
-  //       "Delivered an innovative module for seamless SSL RDP connections, boosting remote connectivity efficiency by 40%.",
-  //       "Resulted in a 30% boost in user engagement and a 25% increase in client satisfaction with well-executed UI/UX designs.",
-  //       "Managed Red Hat Linux environments, applying Bash scripting to automate system processes and improve task efficiency.",
-  //       "Developed and implemented complex business logic utilizing Java 8 features across multiple monitoring platforms.",
-  //       "Optimized data pipelines with Kafka to efficiently handle and validate events triggered across multiple monitoring platforms.",
-  //     ],
-  //     icon: (
-  //       <lord-icon
-  //         src="https://cdn.lordicon.com/mebvgwrs.json"
-  //         trigger="loop"
-  //         delay="3000"
-  //         stroke="bold"
-  //       />
-  //     ),
-  //   },
-  // ];
+      );
+    }
+  };
 
   return (
     <>
@@ -394,7 +395,7 @@ const ProfessionalExperienceSection = () => {
           {title}
         </h3>
         <div className="flex flex-col border-l-[2px] border-resume-line-border pl-4 m-0 p-0 gap-6">
-          {jobs.map((job, index) => (
+          {experiences.map((job, index) => (
             <div
               key={index}
               className={`${job.companyName}-experience relative`}
@@ -402,7 +403,7 @@ const ProfessionalExperienceSection = () => {
               <div className="absolute w-[16px] h-[16px] rounded-full -left-[24.5px] top-0 bg-section-secondary border-resume-line-border border-[2px]"></div>
               <h4 className="inline-flex items-center gap-2 text-lg text-resume-heading-h3 pb-1 font-[600] m-0 uppercase font-[poppins] relative -top-2">
                 {job.title}
-                {job.icon}
+                {getCompanyIcon(index)}
               </h4>
               <h5 className="text-[1rem] px-3 py-1 bg-resume-date-item w-fit rounded-[5px] text-section-title-h2 font-[600] font-[Raleway]">
                 {job.duration}
@@ -416,8 +417,8 @@ const ProfessionalExperienceSection = () => {
                 </em>
               </p>
               <ul className="text-[1rem] list-disc pl-5">
-                {job.responsibilities.map((responsibility, index) => (
-                  <li key={index} className="pb-2">
+                {job.responsibilities.map((responsibility, respIndex) => (
+                  <li key={respIndex} className="pb-2">
                     {responsibility}
                   </li>
                 ))}
