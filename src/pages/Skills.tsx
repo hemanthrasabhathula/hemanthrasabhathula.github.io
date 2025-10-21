@@ -10,7 +10,7 @@ import { setActiveSection } from "../lib/navSlice";
 const Skills = React.memo(({ className }: ClassNameProps) => {
   const title = SECTION.SKILLS;
   const skillsDescription =
-    "As an accomplished developer, I possess a profound expertise in a wide array of programming languages, including Java, Kotlin, Python and JavaScript. My proficiency extends to cutting-edge web development technologies, encompassing Angular, React, and HTML&CSS. Furthermore, I have a substantial background in database management and a comprehensive grasp of SQL.";
+    "As an accomplished developer, I possess a profound expertise in a wide array of programming languages, including Java, Kotlin, Python, and JavaScript. My proficiency extends to cutting-edge web development technologies, encompassing Angular, React, and HTML & CSS. Furthermore, I have a substantial background in database management with PostgreSQL and MongoDB, along with a comprehensive grasp of SQL and cloud platforms such as AWS and Azure.";
 
   const skills = [
     { tech: "JAVA", progress: 85 },

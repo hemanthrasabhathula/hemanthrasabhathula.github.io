@@ -52,20 +52,6 @@ const HomeContainer = React.memo(
           id={SECTION_ID.HOME}
           ref={ref}
         >
-          {/* Toggle Button */}
-          {/* <div
-            className={cn(
-              "fixed top-4 right-4 md:hidden z-50 bg-highlight-blue rounded-full p-2 cursor-pointer transition-all duration-500 ease-in-out opacity-90",
-              isNavBarOpen ? "rotate-180 scale-110" : "rotate-0 scale-100"
-            )}
-            onClick={toggleNavBar}
-          >
-            {isNavBarOpen ? (
-              <X className="text-white size-6" />
-            ) : (
-              <Menu className="text-white size-6" />
-            )}
-          </div> */}
           {/* Hamburger Button */}
           <div className="fixed top-4 right-4 md:hidden z-50 bg-highlight-blue rounded-full p-1 cursor-pointer transition-all duration-500 ease-in-out opacity-90">
             <HamburgerButton

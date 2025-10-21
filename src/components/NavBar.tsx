@@ -62,9 +62,9 @@ const NavBar = React.memo(({ className, toggleNavBar }: NavBarProps) => {
     (state: RootState) => state.nav.activeSection
   );
 
-  console.log("Active Section from Redux:", activeSection);
+  // console.log("Active Section from Redux:", activeSection);
   const isActive = (section: string) => {
-    console.log("Active Section:", activeSection, "Current Section:", section);
+    // console.log("Active Section:", activeSection, "Current Section:", section);
     return activeSection === section ? "text-cyan-500" : "text-white";
   };
 

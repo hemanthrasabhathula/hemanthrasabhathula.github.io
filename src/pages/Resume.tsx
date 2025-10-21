@@ -55,17 +55,17 @@ const Resume = React.memo(({ className }: ClassNameProps) => {
         </div>
         <p className="text-[1rem]">{resumeDescription}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+          {/* COLUMN 1 */}
           <div className="flex flex-col gap-6" data-aos="fade-up">
             {/*  SUMMARY SECTION */}
             <SummarySection />
-
             {/*  EDUCATION SECTION */}
             <EducationSection className="hidden md:block" />
-
             {/* PROJECTS */}
             <ProjectsSection className="hidden md:block" />
           </div>
 
+          {/* COLUMN 2 */}
           <div className="flex flex-col gap-6" data-aos="fade-up">
             {/* PROFESSIONAL EXPERIENCE */}
             <ProfessionalExperienceSection />
