@@ -30,6 +30,8 @@ export const SOCIAL = {
 
 export const PROFILE = {
   NAME: "Hemanth Rasabhathula",
+  FIRST_NAME: "Hemanth",
+  LAST_NAME: "Rasabhathula",
   EMAIL: "Hemanth.Rasabhathula@gmail.com",
   WEBSITE: "www.hemanthrasabhathula.co.in",
   LOCATION: "Lee's Summit, MO",

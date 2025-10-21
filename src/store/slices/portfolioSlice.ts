@@ -1,7 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PortfolioConfig } from "./types";
+import { PortfolioConfig } from "../../lib/types";
 import axios from "axios";
-import { FILE_NAME, GIST_ID, GITHUB_GIST_BASE_URL } from "./constants";
+import {
+  FILE_NAME,
+  GIST_ID,
+  GITHUB_GIST_BASE_URL,
+} from "../../lib/constants/constants";
 
 interface PortfolioState {
   config: PortfolioConfig | null;

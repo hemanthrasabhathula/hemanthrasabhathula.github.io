@@ -5,16 +5,21 @@ import { LuGithub, LuInstagram, LuLinkedin } from "react-icons/lu";
 import { FaChartSimple, FaXTwitter } from "react-icons/fa6";
 import React from "react";
 import profileImg from "../assets/profile-image-cropped.jpg";
-import { SECTION, SECTION_ID, SOCIAL } from "../lib/constants";
+import {
+  PROFILE,
+  SECTION,
+  SECTION_ID,
+  SOCIAL,
+} from "../lib/constants/constants";
 import { useSelector } from "react-redux";
-import { RootState } from "../lib/store";
+import { RootState } from "../store/store";
 
 interface NavBarProps extends ClassNameProps {
   toggleNavBar: () => void;
 }
 
 const NavBar = React.memo(({ className, toggleNavBar }: NavBarProps) => {
-  const name = "Hemanth Rasabhathula";
+  const name = PROFILE.NAME;
   const socialIcons = [
     { icon: <LuGithub />, link: SOCIAL.GITHUB },
     {

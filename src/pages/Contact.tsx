@@ -2,15 +2,15 @@ import { Mail, MapPin } from "lucide-react";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React, { useEffect } from "react";
-import { SECTION, PROFILE } from "../lib/constants";
+import { SECTION, PROFILE } from "../lib/constants/constants";
 import { useDispatch } from "react-redux";
 import { useInView } from "react-intersection-observer";
-import { setActiveSection } from "../lib/navSlice";
-import { SECTION_ID } from "../lib/constants";
+import { setActiveSection } from "../store/slices/navSlice";
+import { SECTION_ID } from "../lib/constants/constants";
 
 const Contact = React.memo(({ className }: ClassNameProps) => {
   const title = SECTION.CONTACT;
-
+  const sectionId = SECTION_ID.CONTACT;
   const contactItems = [
     {
       icon: <MapPin className="size-5" />,
@@ -29,7 +29,7 @@ const Contact = React.memo(({ className }: ClassNameProps) => {
 
   useEffect(() => {
     if (inView) {
-      dispatch(setActiveSection(SECTION_ID.CONTACT));
+      dispatch(setActiveSection(sectionId));
     }
   }, [inView, dispatch]);
 
@@ -40,7 +40,7 @@ const Contact = React.memo(({ className }: ClassNameProps) => {
           "overflow-hidden flex flex-col justify-center p-4 py-12",
           className
         )}
-        id={SECTION_ID.CONTACT}
+        id={sectionId}
         ref={ref}
       >
         <div className="pb-8">

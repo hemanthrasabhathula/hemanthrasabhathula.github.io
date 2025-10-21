@@ -3,10 +3,10 @@ import Name from "../components/Name";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import React, { useEffect, useState } from "react";
-import { SECTION_ID } from "../lib/constants";
+import { SECTION_ID } from "../lib/constants/constants";
 import { useDispatch } from "react-redux";
 import { useInView } from "react-intersection-observer";
-import { setActiveSection } from "../lib/navSlice";
+import { setActiveSection } from "../store/slices/navSlice";
 import { HamburgerButton } from "../components/hamburgerButton";
 
 interface HomeContainerProps extends ClassNameProps {
@@ -64,7 +64,7 @@ const HomeContainer = React.memo(
           {/* Name Component */}
           <Name className="absolute bottom-50 left-10 md:bottom-40 md:left-30" />
 
-          {/* Scroll-based Icon */}
+          {/* Scroll-based Arrow Icon to Scroll to Top */}
           <div
             className={cn(
               "fixed bottom-4 right-4 z-50 bg-highlight-blue rounded-full p-2 cursor-pointer transition-opacity duration-500 ease-in-out ",

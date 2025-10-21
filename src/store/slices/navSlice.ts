@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SECTION } from "./constants";
+import { SECTION } from "../../lib/constants/constants";
 
 interface NavState {
   activeSection: string;

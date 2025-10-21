@@ -2,8 +2,6 @@ export interface ClassNameProps {
   className?: string; // Optional className prop
 }
 
-// Content types
-
 // Base interface for sections with titles
 export interface BaseSection {
   title: string;

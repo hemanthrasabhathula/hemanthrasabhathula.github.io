@@ -3,21 +3,10 @@ import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import TypedComponent from "./TypedComponent";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useNameData } from "../lib/hooks/useNameData";
 
 const Name = React.memo(({ className }: ClassNameProps) => {
-  const typedStrings = [
-    "Developer",
-    "Techie",
-    "Cyber geek",
-    "UI Designer",
-    "AI Fanatic",
-    "Futurist",
-  ];
-
-  const name = {
-    firstName: "Hemanth",
-    lastName: "Rasabhathula",
-  };
+  const { firstName, lastName, typedStrings } = useNameData();
 
   return (
     <>
@@ -28,8 +17,8 @@ const Name = React.memo(({ className }: ClassNameProps) => {
         )}
         data-aos="fade-in"
       >
-        <span>{name.firstName}</span>
-        <span>{name.lastName}</span>
+        <span>{firstName}</span>
+        <span>{lastName}</span>
         <p className="text-2xl mt-3 font-medium font-[poppins]">
           <span className="waving-hand">👋</span> I'm a
           <ChevronLeft className="inline-block" />

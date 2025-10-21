@@ -6,8 +6,9 @@ import HomeContainer from "./pages/HomeContainer";
 import Resume from "./pages/Resume";
 import Skills from "./pages/Skills";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "./lib/store";
-import { fetchPortfolioConfig } from "./lib/portfolioSlice";
+
+import { fetchPortfolioConfig } from "./store/slices/portfolioSlice";
+import { AppDispatch } from "./store/store";
 
 export interface NavBarProps {
   isOpen: boolean;

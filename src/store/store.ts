@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import navSlice from "./navSlice";
-import portfolioSlice from "./portfolioSlice";
+import navSlice from "./slices/navSlice";
+import portfolioSlice from "./slices/portfolioSlice";
 
 export const store = configureStore({
   reducer: {

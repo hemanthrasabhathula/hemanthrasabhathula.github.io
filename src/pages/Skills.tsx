@@ -1,26 +1,14 @@
 import React, { useEffect } from "react";
 import ProgressBar from "../components/ProgressBar";
-import { SECTION, SECTION_ID } from "../lib/constants";
 import { ClassNameProps } from "../lib/types";
 import { cn } from "../lib/utils";
 import { useDispatch } from "react-redux";
 import { useInView } from "react-intersection-observer";
-import { setActiveSection } from "../lib/navSlice";
+import { setActiveSection } from "../store/slices/navSlice";
+import { useSkillsData } from "../lib/hooks/useSkillsData";
 
 const Skills = React.memo(({ className }: ClassNameProps) => {
-  const title = SECTION.SKILLS;
-  const skillsDescription =
-    "As an accomplished developer, I possess a profound expertise in a wide array of programming languages, including Java, Kotlin, Python, and JavaScript. My proficiency extends to cutting-edge web development technologies, encompassing Angular, React, and HTML & CSS. Furthermore, I have a substantial background in database management with PostgreSQL and MongoDB, along with a comprehensive grasp of SQL and cloud platforms such as AWS and Azure.";
-
-  const skills = [
-    { tech: "JAVA", progress: 85 },
-    { tech: "KOTLIN", progress: 75 },
-    { tech: "PYTHON", progress: 80 },
-    { tech: "JAVASCRIPT", progress: 90 },
-    { tech: "REACT", progress: 90 },
-    { tech: "SQL", progress: 70 },
-  ];
-
+  const { title, skillsDescription, skills, sectionId } = useSkillsData();
   // Split skills into two columns
   const column1 = skills.slice(0, Math.ceil(skills.length / 2));
   const column2 = skills.slice(Math.ceil(skills.length / 2));
@@ -30,7 +18,7 @@ const Skills = React.memo(({ className }: ClassNameProps) => {
 
   useEffect(() => {
     if (inView) {
-      dispatch(setActiveSection(SECTION_ID.SKILLS));
+      dispatch(setActiveSection(sectionId));
     }
   }, [inView, dispatch]);
 
@@ -38,7 +26,7 @@ const Skills = React.memo(({ className }: ClassNameProps) => {
     <>
       <section
         className={cn("flex flex-col justify-center p-4 py-12", className)}
-        id={SECTION_ID.SKILLS}
+        id={sectionId}
         ref={ref}
       >
         <div className="pb-8">
