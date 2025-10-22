@@ -34,7 +34,6 @@ export const fetchPortfolioConfig = createAsyncThunk(
       const parsedData = JSON.parse(fileContent);
       return parsedData as PortfolioConfig;
     } catch (error) {
-      // console.error("Error fetching portfolio config:", error);
       if (axios.isAxiosError(error)) {
         return rejectWithValue(
           error.message || "Failed to fetch portfolio config"
