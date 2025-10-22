@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { SECTION_ID } from "../../lib/constants/constants";
 import { ClassNameProps } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import React, { useEffect } from "react";
@@ -14,13 +13,13 @@ import {
 } from "../../lib/hooks/useResumeData";
 
 const Resume = React.memo(({ className }: ClassNameProps) => {
-  const { title, description } = useResumeData();
+  const { title, description, sectionId } = useResumeData();
   const dispatch = useDispatch();
   const { ref, inView } = useInView({ threshold: 0.2 });
 
   useEffect(() => {
     if (inView) {
-      dispatch(setActiveSection(SECTION_ID.RESUME));
+      dispatch(setActiveSection(sectionId));
     }
   }, [inView, dispatch]);
 
@@ -28,7 +27,7 @@ const Resume = React.memo(({ className }: ClassNameProps) => {
     <>
       <section
         className={cn("flex flex-col justify-center p-4 py-12", className)}
-        id={SECTION_ID.RESUME}
+        id={sectionId}
         ref={ref}
       >
         {/* RESUME HEADLINE */}

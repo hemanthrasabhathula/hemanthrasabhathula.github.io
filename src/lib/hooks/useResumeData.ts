@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { SECTION } from "../constants/constants";
+import { SECTION, SECTION_ID } from "../constants/constants";
 import { RootState } from "../../store/store";
 import { FALLBACK_DATA } from "../constants/fallbackData";
 export const useResumeData = () => {
@@ -12,7 +12,7 @@ export const useResumeData = () => {
   const title = data.title || SECTION.RESUME;
   const description = data.description || "";
 
-  return { title, description };
+  return { title, description, sectionId: SECTION_ID.RESUME };
 };
 
 export const useSummaryData = () => {

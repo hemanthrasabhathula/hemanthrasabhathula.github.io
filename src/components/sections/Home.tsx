@@ -34,11 +34,12 @@ const HomeContainer = React.memo(
     }, []);
 
     const dispatch = useDispatch();
+    const sectionId = SECTION_ID.HOME;
     const { ref, inView } = useInView({ threshold: 0.5 });
 
     useEffect(() => {
       if (inView) {
-        dispatch(setActiveSection(SECTION_ID.HOME));
+        dispatch(setActiveSection(sectionId));
       }
     }, [inView, dispatch]);
 
@@ -49,7 +50,7 @@ const HomeContainer = React.memo(
             "h-svh flex flex-col items-center justify-center p-4 relative",
             className
           )}
-          id={SECTION_ID.HOME}
+          id={sectionId}
           ref={ref}
         >
           {/* Hamburger Button */}

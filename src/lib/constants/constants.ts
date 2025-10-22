@@ -1,3 +1,12 @@
+// API Configuration from environment variables
+export const API_CONFIG = {
+  GITHUB_GIST_BASE_URL:
+    import.meta.env.VITE_GITHUB_GIST_BASE_URL ||
+    "https://api.github.com/gists/",
+  GIST_ID: import.meta.env.VITE_GIST_ID || "dummy-gist-id",
+  FILE_NAME: import.meta.env.VITE_FILE_NAME || "config.json",
+} as const;
+
 export const SECTION = {
   HOME: "Home",
   ABOUT: "About",

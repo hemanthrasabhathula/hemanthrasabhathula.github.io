@@ -1,11 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { PortfolioConfig } from "../../lib/types";
 import axios from "axios";
-import {
-  FILE_NAME,
-  GIST_ID,
-  GITHUB_GIST_BASE_URL,
-} from "../../lib/constants/constants";
+import { API_CONFIG } from "../../lib/constants/constants";
 
 interface PortfolioState {
   config: PortfolioConfig | null;
@@ -26,14 +22,15 @@ export const fetchPortfolioConfig = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       // const response = await axios.get<PortfolioConfig>(API_URL);
-      const response = await axios.get(`${GITHUB_GIST_BASE_URL}${GIST_ID}`);
+      const url = `${API_CONFIG.GITHUB_GIST_BASE_URL}${API_CONFIG.GIST_ID}`;
+      const response = await axios.get(`${url}`);
       if (response.status !== 200) {
         return rejectWithValue("Failed to fetch portfolio config");
       }
-      if (!response.data.files || !response.data.files[FILE_NAME]) {
+      if (!response.data.files || !response.data.files[API_CONFIG.FILE_NAME]) {
         return rejectWithValue("Config file not found in the gist");
       }
-      const fileContent = response.data.files[FILE_NAME].content;
+      const fileContent = response.data.files[API_CONFIG.FILE_NAME].content;
       const parsedData = JSON.parse(fileContent);
       return parsedData as PortfolioConfig;
     } catch (error) {
