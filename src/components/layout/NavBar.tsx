@@ -1,5 +1,4 @@
 import { File, Home, Mail, UserRound } from "lucide-react";
-
 import { LuGithub, LuInstagram, LuLinkedin } from "react-icons/lu";
 import { FaChartSimple, FaXTwitter } from "react-icons/fa6";
 import React from "react";

@@ -1,15 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 
-import About from "./components/sections/About";
-import Contact from "./components/sections/Contact";
-import HomeContainer from "./components/sections/Home";
-import Resume from "./components/sections/Resume";
-import Skills from "./components/sections/Skills";
+import { About, Contact, Resume, Skills, Home } from "./components/sections";
 import { useDispatch } from "react-redux";
-
-import { fetchPortfolioConfig } from "./store/slices/portfolioSlice";
 import { AppDispatch } from "./store/store";
-import NavBar from "./components/layout/NavBar";
+import { NavBar } from "./components/layout";
+import { fetchPortfolioConfig } from "./store/slices";
 
 export interface NavBarProps {
   isOpen: boolean;
@@ -55,10 +50,7 @@ function App() {
 
         {/* Main Content */}
         <div className="flex flex-col w-full">
-          <HomeContainer
-            toggleNavBar={toggleNavBar}
-            isNavBarOpen={isNavBarOpen}
-          />
+          <Home toggleNavBar={toggleNavBar} isNavBarOpen={isNavBarOpen} />
           <About className="bg-section-primary rounded-t-[24px] md:rounded-t-[16px]" />
           <Skills className="bg-section-secondary" />
           <Resume className="bg-section-primary" />

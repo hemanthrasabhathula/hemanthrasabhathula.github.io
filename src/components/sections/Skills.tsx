@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import ProgressBar from "../ui/ProgressBar";
 import { ClassNameProps } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import { useDispatch } from "react-redux";
 import { useInView } from "react-intersection-observer";
-import { setActiveSection } from "../../store/slices/navSlice";
-import { useSkillsData } from "../../lib/hooks/useSkillsData";
+import { setActiveSection } from "../../store/slices";
+import { useSkillsData } from "../../lib/hooks";
+import { ProgressBar } from "../ui";
 
 const Skills = React.memo(({ className }: ClassNameProps) => {
   const { title, skillsDescription, skills, sectionId } = useSkillsData();

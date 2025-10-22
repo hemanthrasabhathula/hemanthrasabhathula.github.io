@@ -1,9 +1,9 @@
 import React from "react";
 import { ClassNameProps } from "../../lib/types";
 import { cn } from "../../lib/utils";
-import TypedComponent from "./TypedComponent";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useNameData } from "../../lib/hooks/useNameData";
+import { useNameData } from "../../lib/hooks";
+import { TypedComponent } from "./";
 
 const Name = React.memo(({ className }: ClassNameProps) => {
   const { firstName, lastName, typedStrings } = useNameData();

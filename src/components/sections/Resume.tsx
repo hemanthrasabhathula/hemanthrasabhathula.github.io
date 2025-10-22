@@ -3,14 +3,14 @@ import { ClassNameProps } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { setActiveSection } from "../../store/slices/navSlice";
 import {
   useResumeData,
   useSummaryData,
   useEducationData,
   useProjectsData,
   useExperienceData,
-} from "../../lib/hooks/useResumeData";
+} from "../../lib/hooks";
+import { setActiveSection } from "../../store/slices";
 
 const Resume = React.memo(({ className }: ClassNameProps) => {
   const { title, description, sectionId } = useResumeData();

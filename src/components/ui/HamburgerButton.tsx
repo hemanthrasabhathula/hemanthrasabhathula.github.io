@@ -6,7 +6,7 @@ interface HamburgerButtonProps {
   className?: string;
 }
 
-export const HamburgerButton = ({
+const HamburgerButton = ({
   open,
   onClick,
   className,
@@ -40,3 +40,5 @@ export const HamburgerButton = ({
     </>
   );
 };
+
+export default HamburgerButton;

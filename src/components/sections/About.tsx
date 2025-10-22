@@ -4,8 +4,8 @@ import { cn } from "../../lib/utils";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useInView } from "react-intersection-observer";
-import { setActiveSection } from "../../store/slices/navSlice";
-import { useAboutData } from "../../lib/hooks/useAboutData";
+import { setActiveSection } from "../../store/slices";
+import { useAboutData } from "../../lib/hooks";
 
 const About = React.memo(({ className }: ClassNameProps) => {
   const {

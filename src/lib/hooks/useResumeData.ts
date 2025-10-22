@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { SECTION, SECTION_ID } from "../constants/constants";
 import { RootState } from "../../store/store";
-import { FALLBACK_DATA } from "../constants/fallbackData";
+import { FALLBACK_DATA } from "../constants/fallback";
 export const useResumeData = () => {
   const resumeConfig = useSelector(
     (state: RootState) => state.portfolio.config?.sections.resume

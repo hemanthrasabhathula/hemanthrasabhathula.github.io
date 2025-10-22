@@ -1,20 +1,19 @@
 import { ArrowUp } from "lucide-react";
-import Name from "../ui/Name";
 import { ClassNameProps } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import React, { useEffect, useState } from "react";
 import { SECTION_ID } from "../../lib/constants/constants";
 import { useDispatch } from "react-redux";
 import { useInView } from "react-intersection-observer";
-import { setActiveSection } from "../../store/slices/navSlice";
-import { HamburgerButton } from "../ui/HamburgerButton";
+import { HamburgerButton, Name } from "../ui";
+import { setActiveSection } from "../../store/slices";
 
 interface HomeContainerProps extends ClassNameProps {
   toggleNavBar: () => void;
   isNavBarOpen: boolean;
 }
 
-const HomeContainer = React.memo(
+const Home = React.memo(
   ({ className, isNavBarOpen, toggleNavBar }: HomeContainerProps) => {
     const [showIcon, setShowIcon] = useState(false); // State to track icon visibility
 
@@ -83,4 +82,4 @@ const HomeContainer = React.memo(
   }
 );
 
-export default HomeContainer;
+export default Home;
